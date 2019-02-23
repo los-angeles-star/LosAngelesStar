@@ -1,4 +1,5 @@
-# WordPress starter for Gridsome
+# Los Angeles Star
+JavaScript Client for connecting to and parsing JSON coming our of a WordPress REST API plugin
 
 ## Install
 `gridsome create my-gridsome-project wordpress`
