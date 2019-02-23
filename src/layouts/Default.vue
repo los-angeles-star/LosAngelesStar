@@ -18,9 +18,11 @@
             <g-link class="nav__link" :to="{ name: 'about' }">About</g-link>
         </nav>
     </header>
+	<transition name="fade" appear>
     <main>
 		<slot></slot>
 	</main>
+	</transition>
 	<footer class="site-footer">
 		<small>&copy; <time datetime="1851-05-17">1851</time>&ndash;<time datetime="1864-10-01">1864</time>, <time datetime="1868-05-16">1868</time>&ndash;1879, 2019</small>
 	</footer>
@@ -149,5 +151,13 @@ main strong {
 }
 .nav__link {
   margin-left: 20px;
+}
+
+.fade-enter-active {
+  transition: opacity .5s;
+}
+
+.fade-enter {
+  opacity: 0;
 }
 </style>

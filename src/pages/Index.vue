@@ -7,7 +7,7 @@
           <h2 v-html="node.title" class="entry-title" itemprop="headline" />
 		  <time class="published dt-published" :datetime="node.date" itemprop="datePublished">{{ node.date | moment }}</time>
 	    </header>
-        <div class="entry-summary" v-html="node.fields.excerpt"/>
+        <div class="entry-summary" v-html="node.excerpt"/>
         <router-link :to="node.path">Read more</router-link>
 	  </article>
 	</div>
@@ -30,9 +30,10 @@ query Home ($page: Int) {
         id
         title
         path
-		date
-        fields {
-          excerpt
+        excerpt
+        date
+        categories {
+          title
         }
       }
     }
@@ -51,6 +52,11 @@ export default {
   filters: {
     moment: function (date) {
       return moment(date).format('dddd, MMMM Do, YYYY');
+    }
+  },
+  metaInfo: {
+    bodyAttrs: {
+      class: 'blog'
     }
   }
 }
