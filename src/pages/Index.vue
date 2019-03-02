@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <h1 v-html="$page.metaData.siteName"></h1>
+    <transition name="v"><h1 v-html="$page.metaData.siteName"></h1></transition>
     <div class="columns">
       <article v-for="{ node } in $page.allWordPressPost.edges" :key="node.id" itemscope="" itemtype="https://schema.org/NewsArticle">
 		<header>
@@ -47,7 +47,7 @@ import moment from 'moment'
 
 export default {
   components: {
-    Pager
+    Pager,
   },
   filters: {
     moment: function (date) {

@@ -1,32 +1,17 @@
 <template>
-<div class="paper" itemscope="" itemtype="http://schema.org/Newspaper" itemid="#app">
-    <header class="site-header">
-		<slot name="header"></slot>
-		<meta itemprop="name" content="">
-        <div class="flag">
-            <h1>
-                <g-link :to="{ name: 'home' }" itemprop="url"><img class="logo" src="img/los-angeles-star-logo.svg" alt="Los Angeles Star" itemprop="logo"></g-link>
-            </h1>
-        </div>
-        <div class="dateline">
-            <div class="volume" itemprop="hasPart" itemscope="" itemtype="http://schema.org/PublicationVolume" itemid="#vol1"><abbr title="Volume">Vol.</abbr>&nbsp;<span itemprop="volumeNumber">1</span>.</div>
-            <div class="date">Los Angeles, <time datetime="1852-02-28" pubdate="pubdate dt-published" itemprop="datePublished">Saturday, February 28, 1852</time>.</div>
-            <div class="issue" itemprop="hasPart" itemscope="" itemtype="http://schema.org/PublicationIssue" itemid="#iss42"><abbr title="Number">No.</abbr>&nbsp;<span itemprop="issueNumber">42</span>.</div>
-        </div>
-        <nav class="nav">
-            <g-link class="nav__link" :to="{ name: 'home' }">Home</g-link>
-            <g-link class="nav__link" :to="{ name: 'about' }">About</g-link>
-        </nav>
-    </header>
-	<transition name="fade" appear>
-    <main>
-		<slot></slot>
-	</main>
-	</transition>
-	<footer class="site-footer">
-		<small>&copy; <time datetime="1851-05-17">1851</time>&ndash;<time datetime="1864-10-01">1864</time>, <time datetime="1868-05-16">1868</time>&ndash;1879, 2019</small>
-	</footer>
-</div>
+	<div class="paper" itemscope="" itemtype="http://schema.org/Newspaper" itemid="#app">
+	    <header class="site-header">
+			<Header v-slot:header></Header>
+	    </header>
+		<transition name="fade" appear>
+	    <main v-cloak>
+			<slot></slot>
+		</main>
+		</transition>
+		<footer class="site-footer">
+			<small>&copy; <time datetime="1851-05-17">1851</time>&ndash;<time datetime="1864-10-01">1864</time>, <time datetime="1868-05-16">1868</time>&ndash;1879, 2019</small>
+		</footer>
+	</div>
 </template>
 
 <!-- <page-query>
@@ -36,6 +21,17 @@ query All {
   }
 }
 </page-query> -->
+
+<script>
+import Header from '../layouts/Header'
+
+export default {
+	name: 'Default',
+	components: {
+		Header,
+	},
+}
+</script>
 
 <style lang="scss">
 @import "~sanitize.css";
@@ -159,5 +155,8 @@ main strong {
 
 .fade-enter {
   opacity: 0;
+}
+[v-cloak] {
+  display: none;
 }
 </style>
