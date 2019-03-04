@@ -4,7 +4,7 @@
 		<transition name="v">
 		<div class="flag">
 	  		<h1 v-once>
-	  			<g-link :to="{ name: 'home' }" itemprop="url"><img class="logo" src="img/los-angeles-star-logo.svg" alt="Los Angeles Star" itemprop="logo"></g-link>
+	  			<g-link :to="{ name: 'home' }" itemprop="url"><img class="logo" src="img/los-angeles-star-logo.svg" :alt="$static.metaData.siteName" itemprop="logo"></g-link>
 	  		</h1>
 	  	</div>
 	    </transition>
@@ -21,10 +21,10 @@
 </template>
 
 <static-query>
-query Header {
-  header: Header (path: "/layouts/Header") {
-    content
-  }
+query {
+	metaData {
+		siteName
+	}
 }
 </static-query>
 
