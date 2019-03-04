@@ -14,14 +14,6 @@
 	</div>
 </template>
 
-<!-- <page-query>
-query All {
-  metaData {
-    siteName
-  }
-}
-</page-query> -->
-
 <script>
 import Header from '../layouts/Header'
 
@@ -35,7 +27,7 @@ export default {
 
 <style lang="scss">
 @import "~sanitize.css";
-@import url('https://fonts.googleapis.com/css?family=Old+Stand+TT');
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT');
 
 :root {
     --color__brand: #f7f7f7;
