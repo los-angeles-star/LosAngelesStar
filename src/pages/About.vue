@@ -1,9 +1,26 @@
 <template>
   <Layout>
-    <h1>About us</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error doloremque omnis animi, eligendi magni a voluptatum, vitae, consequuntur rerum illum odit fugit assumenda rem dolores inventore iste reprehenderit maxime! Iusto.</p>
+    <h1 v-html="$page.page.edges[0].node.title">About us</h1>
+    <article v-html="$page.page.edges[0].node.content">Lorem ipsum</article>
   </Layout>
 </template>
+
+<page-query>
+query Page ($path: String) {
+  page: allWordPressPage (regex: $path) {
+    edges {
+      node {
+    	title
+        content
+        featuredMedia {
+        	url
+        	mimeType
+        }
+      }
+    }
+  }
+}
+</page-query>
 
 <script>
 export default {}

@@ -27,7 +27,6 @@ export default {
 
 <style lang="scss">
 @import "~sanitize.css";
-@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT');
 
 :root {
     --color__brand: #f7f7f7;
@@ -71,19 +70,6 @@ main strong {
 	}
 }
 .site-header {
-	text-align: center;
-
-	.flag {
-		h1 {
-			margin-top: 0.65625in;
-			margin-bottom: 0;
-		}
-
-		a {
-			display: inline-block;
-		}
-	}
-
 	.dateline {
 	  	display: flex;
 	  	align-items: center;
@@ -142,12 +128,36 @@ main strong {
 }
 
 .fade-enter-active {
-  transition: opacity .5s;
-}
-
-.fade-enter {
+  animation: coming 1s;
+  animation-delay: .5s;
   opacity: 0;
 }
+
+.fade-leave-active {
+  animation: going 1s;
+}
+
+@keyframes going {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes coming {
+  from {
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
 [v-cloak] {
   display: none;
 }
