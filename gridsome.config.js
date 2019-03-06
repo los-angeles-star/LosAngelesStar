@@ -14,6 +14,14 @@ module.exports = {
           post_tag: '/tag/:slug' // adds route for "post_tag" post type (Optional)
         }
       }
+    },
+    {
+      use: '@gridsome/plugin-critical',
+      options: {
+        paths: ['/'],
+        width: 375,
+        height: 667
+      }
     }
   ],
   module: {
