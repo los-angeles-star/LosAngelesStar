@@ -15,7 +15,7 @@
         <router-link :to="node.path">Read more</router-link>
 	  </article>
 	</div>
-	<Pager :info="$page.allWordPressPost.pageInfo" :class="pagination"/>
+	<Pager :info="$page.allWordPressPost.pageInfo" :linkClass="pagination"/>
   </Layout>
 </template>
 
