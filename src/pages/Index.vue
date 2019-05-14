@@ -74,4 +74,18 @@ article {
 		background-position: 24px 24px, 0px 76px, 0 0;
 	}
 }
+
+[aria-label="Pagination Navigation"] {
+	.pager-link {
+		display: inline-block;
+		line-height: 2.75;
+		padding: 0 1em;
+
+		&.active--exact {
+			text-decoration: none;
+			color: inherit;
+			cursor: default;
+		}
+	}
+}
 </style>
