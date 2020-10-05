@@ -4,7 +4,7 @@
 		<transition name="logo" appear :duration="1500">
 			<div class="flag" :class="[isLoading ? 'logo-enter' : 'loaded', '']">
 		  		<h1 v-once>
-		  			<g-link :to="{ name: 'home' }" itemprop="url"><img class="logo responsive" src="@/assets/los-angeles-star-logo.svg" :alt="$static.metaData.siteName" itemprop="logo"></g-link>
+		  			<g-link :to="{ name: 'home' }" itemprop="url"><img class="logo responsive" src="@/assets/los-angeles-star-logo.svg" :alt="$static.metadata.siteName" itemprop="logo"></g-link>
 		  		</h1>
 		  	</div>
 	    </transition>
@@ -22,7 +22,7 @@
 
 <static-query>
 query {
-	metaData {
+	metadata {
 		siteName
 	}
 }
