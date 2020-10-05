@@ -21,11 +21,6 @@
         }
       }
     }
-  },
-  query ($id: ID!) {
-    post: blogPost (id: $id) {
-      image (width: 720, height: 200, quality: 90)
-    }
   }
 </page-query>
 
