@@ -5,11 +5,11 @@
 	    </header>
 		<transition name="fade" appear>
 	    <main v-cloak>
-			<slot></slot>
-		</main>
+				<article :class="$page.allWordPressPost.edges.node.id"><slot></slot></article>
+			</main>
 		</transition>
 		<footer class="site-footer">
-			<small>&copy; <time datetime="1851-05-17">1851</time>&ndash;<time datetime="1864-10-01">1864</time>, <time datetime="1868-05-16">1868</time>&ndash;1879, 2019&ndash;{{ currentDate() }}</small>
+			<small>&copy; <time datetime="1851-05-17">1851</time>&ndash;<time datetime="1864-10-01">1864</time>, <time datetime="1868-05-16">1868</time>&ndash;1879, 2019&ndash;<time :datetime="currentDate()">{{ currentYear() }}</time></small>
 		</footer>
 	</div>
 </template>
@@ -24,10 +24,15 @@ export default {
 	},
 	methods: {
     currentDate() {
-      const current = new Date();
-      const date = `${current.getFullYear()}`;
+      const today = new Date();
+      const date = `${today.toISOString('en-US', { timeZone: 'America/Los_Angeles' })}`;
 			return date;
-    }
+    },
+		currentYear() {
+			const today = new Date();
+			const date = `${today.getFullYear()}`;
+			return date;
+		}
   },
 }
 </script>
@@ -132,6 +137,11 @@ main strong {
 }
 .nav__link {
   margin-left: 20px;
+}
+
+.article {
+	max-width: 600px;
+	margin: 0 auto;
 }
 
 .fade-enter-active {
