@@ -6,20 +6,27 @@
 </template>
 
 <page-query>
-query Page ($path: String) {
-  page: allWordPressPage (regex: $path) {
-    edges {
-      node {
-    	title
-        content
-        featuredMedia {
-        	url
-        	mimeType
+  query Page {
+    pages: allWordPressPage {
+      edges {
+        node {
+          id
+          title
+          date
+          slug
+          content
+          featuredMedia {
+            id
+          }
         }
       }
     }
+  },
+  query ($id: ID!) {
+    post: blogPost (id: $id) {
+      image (width: 720, height: 200, quality: 90)
+    }
   }
-}
 </page-query>
 
 <script>
