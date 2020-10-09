@@ -1,7 +1,15 @@
 <template>
   <Layout>
-    <h1 v-html="$page.wordPressPost.title"/>
-    <div v-html="$page.wordPressPost.fields.content"/>
+    <article :key="$page.post.id" class="h-entry" :class="$page.post.id" role="main" itemscope="" itemtype="https://schema.org/NewsArticle">
+      <header>
+        <h1 v-html="$page.post.title"/>
+        <time :datetime="$page.post.date" class="fremont-pub">
+          <span class="fremont-pub-date" v-html="currentDate($page.post.date)">Today</span>
+          <span class="fremont-pub-time">Updated <span class="css-epvm6">12:00 p.m. PT</span></span>
+        </time>
+      </header>
+      <main v-html="$page.post.fields.content"/>
+    </article>
   </Layout>
 </template>
 
