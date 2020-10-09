@@ -11,7 +11,8 @@ module.exports = {
         concurrent: 10, // How many requests to run simultaneously (Optional)
         routes: {
           post: '/:year/:month/:day/:slug', //adds route for "post" post type (Optional)
-          post_tag: '/tag/:slug' // adds route for "post_tag" post type (Optional)
+          post_tag: '/tag/:slug', // adds route for "post_tag" taxonomy type (Optional)
+          category: '/category/:slug' // adds route for "category" taxonomy type (Optional)
         }
       }
     },
