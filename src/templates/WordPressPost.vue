@@ -7,10 +7,18 @@
 
 <page-query>
 query Post ($path: String!) {
-  wordPressPost (path: $path) {
+  post: wordPressPost (path: $path) {
+    id
     title
+    date
     fields {
       content
+    }
+    featuredMedia {
+      id
+    }
+    categories {
+      slug
     }
   }
 }
