@@ -4,8 +4,8 @@
 			<Header v-slot:header></Header>
 	    </header>
 		<transition name="fade" appear>
-	    <main v-cloak>
-				<article :class="$page.allWordPressPost.edges.node.id"><slot></slot></article>
+	    <main tabindex="-1" v-cloak>
+				<slot></slot>
 			</main>
 		</transition>
 		<footer class="site-footer">
