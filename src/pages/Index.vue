@@ -22,9 +22,12 @@
 <page-query>
 query Home ($page: Int) {
   allWordPressPost (perPage: 10, page: $page) @paginate {
+    totalCount
     pageInfo {
       totalPages
       currentPage
+      isFirst
+      isLast
     }
     edges {
       node {
