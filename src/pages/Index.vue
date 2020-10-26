@@ -1,8 +1,8 @@
 <template>
   <Layout>
     <div class="columns">
-      <article v-for="{ node } in $page.allWordPressPost.edges" :key="node.id" class="h-entry" itemscope="" itemtype="https://schema.org/NewsArticle">
-		<header>
+      <article v-for="{ node } in $page.allWordPressPost.edges" :key="node.id" class="h-entry" :class="node.id" itemscope="" itemtype="https://schema.org/NewsArticle">
+        <header>
           <h2 v-html="node.title" class="p-name" itemprop="headline" />
 		  <time class="dt-published" :datetime="node.date" itemprop="datePublished">{{ node.date | moment }}</time>
 		  <meta itemprop="dateModified" :content="node.modified">
