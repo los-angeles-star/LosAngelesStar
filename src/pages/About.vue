@@ -1,24 +1,19 @@
 <template>
   <Layout>
-    <h1 v-html="$page.page.edges[0].node.title">About us</h1>
-    <article v-html="$page.page.edges[0].node.content">Lorem ipsum</article>
+    <h1 v-html="$page.page.title">About us</h1>
+    <article v-html="$page.page.content">Lorem ipsum</article>
   </Layout>
 </template>
 
 <page-query>
-  query Page {
-    pages: allWordPressPage {
-      edges {
-        node {
-          id
-          title
-          date
-          slug
-          content
-          featuredMedia {
-            id
-          }
-        }
+  query About ($path: String!) {
+    page: wordPressPage (path: $path) {
+      id
+      title
+      date
+      content
+      featuredMedia {
+        id
       }
     }
   }
