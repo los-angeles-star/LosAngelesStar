@@ -1,8 +1,8 @@
 <template>
   <Layout>
     <div class="columns">
-      <article v-for="{ node } in $page.allWordPressPost.edges" :key="node.id" class="h-entry" itemscope="" itemtype="https://schema.org/NewsArticle">
-		<header>
+      <article v-for="{ node } in $page.allWordPressPost.edges" :key="node.id" class="h-entry" :class="node.id" itemscope="" itemtype="https://schema.org/NewsArticle">
+        <header>
           <h2 v-html="node.title" class="p-name" itemprop="headline" />
 		  <time class="dt-published" :datetime="node.date" itemprop="datePublished">{{ node.date | moment }}</time>
 		  <meta itemprop="dateModified" :content="node.modified">
@@ -15,16 +15,19 @@
         <router-link :to="node.path">Read more</router-link>
 	  </article>
 	</div>
-	<Pager :info="$page.allWordPressPost.pageInfo" :linkClass="{ 'pager-link': true }"/>
+	<Pager :info="$page.allWordPressPost.pageInfo" linkClass="pager-link"/>
   </Layout>
 </template>
 
 <page-query>
 query Home ($page: Int) {
   allWordPressPost (perPage: 10, page: $page) @paginate {
+    totalCount
     pageInfo {
       totalPages
       currentPage
+      isFirst
+      isLast
     }
     edges {
       node {
@@ -44,11 +47,13 @@ query Home ($page: Int) {
 
 <script>
 import { Pager } from 'gridsome'
+import Post from '~/templates/WordPressPost.vue'
 import moment from 'moment'
 
 export default {
   components: {
     Pager,
+    Post
   },
   filters: {
     moment: function (date) {
