@@ -47,11 +47,13 @@ query Home ($page: Int) {
 
 <script>
 import { Pager } from 'gridsome'
+import Post from '~/templates/WordPressPost.vue'
 import moment from 'moment'
 
 export default {
   components: {
     Pager,
+    Post
   },
   filters: {
     moment: function (date) {
