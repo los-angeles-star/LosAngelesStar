@@ -1,9 +1,9 @@
 <template>
   <Layout>
     <div class="columns">
-	</div>
-	<Pager :info="$page.allWordPressPost.pageInfo" linkClass="pager-link"/>
         <Article  v-for="{ node } in $page.allWordPressPost.edges" :key="node.id" :node="node" />
+    </div>
+    <Pager :info="$page.allWordPressPost.pageInfo" linkClass="pager-link"/>
   </Layout>
 </template>
 
