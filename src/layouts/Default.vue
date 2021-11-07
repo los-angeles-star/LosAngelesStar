@@ -9,31 +9,21 @@
 			</main>
 		</transition>
 		<footer class="site-footer">
-			<small>&copy; <time datetime="1851-05-17">1851</time>&ndash;<time datetime="1864-10-01">1864</time>, <time datetime="1868-05-16">1868</time>&ndash;1879, 2019&ndash;<time :datetime="currentDate()">{{ currentYear() }}</time></small>
+			<Footer v-slot:footer></Footer>
 		</footer>
 	</div>
 </template>
 
 <script>
 import Header from '../layouts/Header'
+import Footer from '../layouts/Footer'
 
 export default {
 	name: 'Default',
 	components: {
 		Header,
+		Footer
 	},
-	methods: {
-    currentDate() {
-      const today = new Date();
-      const date = `${today.toISOString('en-US', { timeZone: 'America/Los_Angeles' })}`;
-			return date;
-    },
-		currentYear() {
-			const today = new Date();
-			const date = `${today.getFullYear()}`;
-			return date;
-		}
-  },
 }
 </script>
 
