@@ -77,4 +77,24 @@ article {
 		}
 	}
 }
+
+:link {
+  color: cmyk(100%, 100%, 0, 0); // blue
+
+  &:visited {
+    color: cmyk(0, 100%, 0, 50%); // purple
+  }
+
+  &:focus {
+    outline: 2px solid var(--color__process-cyan);
+  }
+
+  &:hover {
+    color: var(--color__process-cyan);
+  }
+
+  &:active {
+    color: #8b534e;
+  }
+}
 </style>
