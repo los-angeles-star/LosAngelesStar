@@ -1,21 +1,9 @@
 <template>
   <Layout>
     <div class="columns">
-      <article v-for="{ node } in $page.allWordPressPost.edges" :key="node.id" class="h-entry" :class="node.id" itemscope="" itemtype="https://schema.org/NewsArticle">
-        <header>
-          <h2 v-html="node.title" class="p-name" itemprop="headline" />
-		  <time class="dt-published" :datetime="node.date" itemprop="datePublished">{{ node.date | moment }}</time>
-		  <meta itemprop="dateModified" :content="node.modified">
-		  <span itemprop="publisher" itemscope="itemscope" itemtype="https://schema.org/Organization">
-			<meta itemprop="name" content="Los Angeles Star">
-			<meta itemprop="logo" url="@/assets/los-angeles-star-logo.svg">
-		  </span>
-	    </header>
-        <div class="p-summary" v-html="node.excerpt"/>
-        <router-link :to="node.path">Read more</router-link>
-	  </article>
 	</div>
 	<Pager :info="$page.allWordPressPost.pageInfo" linkClass="pager-link"/>
+        <Article  v-for="{ node } in $page.allWordPressPost.edges" :key="node.id" :node="node" />
   </Layout>
 </template>
 
@@ -48,17 +36,13 @@ query Home ($page: Int) {
 <script>
 import { Pager } from 'gridsome'
 import Post from '~/templates/WordPressPost.vue'
-import moment from 'moment'
+import Article from '~/templates/WordPressPostExcerpt.vue'
 
 export default {
   components: {
     Pager,
-    Post
-  },
-  filters: {
-    moment: function (date) {
-      return moment(date).format('dddd, MMMM Do, YYYY');
-    }
+    Post,
+    Article
   },
   metaInfo: {
     bodyAttrs: {
