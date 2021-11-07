@@ -6,8 +6,8 @@
 </template>
 
 <page-query>
-  query About ($path: String!) {
-    page: wordPressPage (path: $path) {
+  query About {
+    page: wordPressPage (path: "/pages/about/") {
       id
       title
       date
