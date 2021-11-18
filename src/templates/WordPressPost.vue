@@ -19,9 +19,7 @@ query Post ($path: String!) {
     id
     title
     date
-    fields {
-      content
-    }
+    content
     featuredMedia {
       id
     }

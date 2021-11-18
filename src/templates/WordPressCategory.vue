@@ -9,9 +9,7 @@
 query Category ($path: String!) {
   category: wordPressCategory (path: $path) {
     title
-    fields {
-      count
-    }
+    count
   }
 }
 </page-query>
