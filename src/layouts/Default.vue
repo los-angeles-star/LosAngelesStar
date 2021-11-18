@@ -18,12 +18,37 @@
 import Header from '../layouts/Header'
 import Footer from '../layouts/Footer'
 
+const data = { attention: true }
+
 export default {
 	name: 'Default',
 	components: {
 		Header,
 		Footer
 	},
+	data () {
+		return data
+	},
+	methods: {
+		onFocus: function () {
+			return this.attention = true
+		},
+		onBlur: function () {
+			return this.attention = false
+		}
+	},
+	created () {
+		// Active
+		window.addEventListener( 'focus', this.onFocus )
+
+		// Inactive
+		window.addEventListener( 'blur', this.onBlur )
+	},
+	destroyed: function () {
+		window.removeEventListener( 'focus', this.onFocus )
+
+		window.removeEventListener( 'blur', this.onBlur )
+	}
 }
 </script>
 
