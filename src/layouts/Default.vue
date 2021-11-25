@@ -2,9 +2,9 @@
 	<div class="paper" itemscope="" itemtype="http://schema.org/Newspaper" itemid="#app">
 	    <header class="site-header">
 			<Header v-slot:header></Header>
-	    </header>
+			</header>
 		<transition name="fade" appear>
-	    <main tabindex="-1" v-cloak>
+			<main tabindex="-1" v-cloak>
 				<slot></slot>
 			</main>
 		</transition>
@@ -56,34 +56,34 @@ export default {
 @import "~sanitize.css";
 
 :root {
-    --color__brand: #f7f7f7;
-    --color__text: #2f2f2f;
-    --color__border: var(--color__text);
-    --color__process-cyan: #00b7eb;
-    --color__process-magenta: #cc006b;
-    --color__process-yellow: #fff10c;
-    --color__process-black: #000;
+		--color__brand: #f7f7f7;
+		--color__text: #2f2f2f;
+		--color__border: var(--color__text);
+		--color__process-cyan: #00b7eb;
+		--color__process-magenta: #cc006b;
+		--color__process-yellow: #fff10c;
+		--color__process-black: #000;
 }
 html {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
 }
 body {
-  font-family: "Old Standard TT", Times, "Times New Roman", serif;
+	font-family: "Old Standard TT", Times, "Times New Roman", serif;
 }
 main strong {
 	font-weight: normal;
 	font-variant: small-caps;
 }
 .paper {
-  box-sizing: border-box;
-  background-color: var(--color__brand);
-  max-width: 12in;
-  margin: 0 auto;
-  padding: 1em;
+	box-sizing: border-box;
+	background-color: var(--color__brand);
+	max-width: 12in;
+	margin: 0 auto;
+	padding: 1em;
 
-  @media all and (min-width: 12in) {
-	  padding: 0.5in;
-  }
+	@media all and (min-width: 12in) {
+		padding: 0.5in;
+	}
 }
 .columns {
 	columns: 2;
@@ -98,14 +98,14 @@ main strong {
 }
 .site-header {
 	.dateline {
-	  	display: flex;
-	  	align-items: center;
-	  	justify-content: space-between;
-	  	flex-wrap: wrap;
-	  	text-transform: uppercase;
-	  	border-top: 2px solid var(--color__border);
-	  	border-bottom: 1px solid var(--color__border);
-	  	letter-spacing: -0.28px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			text-transform: uppercase;
+			border-top: 2px solid var(--color__border);
+			border-bottom: 1px solid var(--color__border);
+			letter-spacing: -0.28px;
 
 		&::before,
 		&::after {
@@ -151,7 +151,7 @@ main strong {
 	text-align: justify;
 }
 .nav__link {
-  margin-left: 20px;
+	margin-left: 20px;
 }
 
 .article {
@@ -160,37 +160,37 @@ main strong {
 }
 
 .fade-enter-active {
-  animation: coming 1s;
-  animation-delay: .5s;
-  opacity: 0;
+	animation: coming 1s;
+	animation-delay: .5s;
+	opacity: 0;
 }
 
 .fade-leave-active {
-  animation: going 1s;
+	animation: going 1s;
 }
 
 @keyframes going {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(0, 50px, 0);
-    opacity: 0;
-  }
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		transform: translate3d(0, 50px, 0);
+		opacity: 0;
+	}
 }
 
 @keyframes coming {
-  from {
-    transform: translate3d(0, 50px, 0);
-    opacity: 0;
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
+	from {
+		transform: translate3d(0, 50px, 0);
+		opacity: 0;
+	}
+	to {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
 }
 
 [v-cloak] {
-  display: none;
+	display: none;
 }
 </style>
