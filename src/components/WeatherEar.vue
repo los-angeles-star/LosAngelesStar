@@ -1,5 +1,5 @@
 <template>
-  <div class="forecast" :class="{ focus: attention }">
+  <div class="forecast">
     <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 512 512">
       <title>Today's weather: {{ weather.temperature | fahrenheit }}&thinsp;°F and {{ weather.description }}</title>
       <g v-if="weather.description = 'Clear'">
@@ -22,8 +22,8 @@
         <path fill="#1d1d1b" d="M350 343a128 128 0 1 1-133-211 16 16 0 0 1 20 21 95 95 0 0 0 122 122c6-2 13-1 17 4 4 4 6 11 4 16-7 19-17 35-30 48zM191 185a96 96 0 1 0 143 127 127 127 0 0 1-134-134l-9 7z"/>
       </g>
     </svg>
-    <span class="current" v-show="weather.temperature">{{ weather.temperature | fahrenheit | integer }}&thinsp;<abbr title="degrees Fahrenheit">&deg;F</abbr></span>
-    <span class="range">{{ weather.high | fahrenheit | integer }}&thinsp;&deg; <span class="low" v-show="weather.low">{{ weather.low | fahrenheit }}&deg;</span></span>
+    <span class="current" v-show="weather.temperature"><span class="visually-hidden">Current temperature:</span>{{ weather.temperature | fahrenheit | integer }}&thinsp;<abbr title="degrees Fahrenheit">&deg;F</abbr></span>
+    <span class="range"><span class="visually-hidden">Today’s high temperature:</span>{{ weather.high | fahrenheit | integer }}&thinsp;&deg; <span class="low" v-show="weather.low"><span class="visually-hidden">Today’s low temperature:</span>{{ weather.low | fahrenheit }}&deg;</span></span>
   </div>
 </template>
 
