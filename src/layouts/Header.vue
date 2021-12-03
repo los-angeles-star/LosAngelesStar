@@ -31,7 +31,7 @@ query {
 <script>
 export default {
 	name: 'Header',
-	props: ["isLoading"],
+	props: ["isLoading", "attention"],
 }
 </script>
 
