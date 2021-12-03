@@ -186,6 +186,6 @@ export default {
 
 .low {
   margin-left: 2px;
-  color: rgb(153, 153, 153);
+  color: #717171;
 }
 </style>

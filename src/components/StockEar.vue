@@ -140,7 +140,7 @@ export default {
     margin: 0;
 
     &.positive {
-      color: rgb(63, 137, 59);
+      color: #3a7f36;
     }
 
     &.negative {
