@@ -8,6 +8,7 @@
 	  		</h1>
 	  	</div>
     </transition>
+			<WeatherEar  :attention="attention" :key="componentKey" />
   	<div class="dateline">
   		<div class="volume" itemprop="hasPart" itemscope="" itemtype="http://schema.org/PublicationVolume" itemid="#vol1"><abbr title="Volume">Vol.</abbr>&nbsp;<span itemprop="volumeNumber">1</span>.</div>
   		<div class="date">Los Angeles, <time datetime="1852-02-28" pubdate="pubdate dt-published" itemprop="datePublished">Saturday, February 28, 1852</time>.</div>
@@ -29,9 +30,25 @@ query {
 </static-query>
 
 <script>
+import WeatherEar from '~/components/WeatherEar.vue'
 export default {
 	name: 'Header',
 	props: ["isLoading", "attention"],
+	data () {
+		return {
+			componentKey: 0,
+		}
+	},
+	components: {
+		WeatherEar,
+	},
+	watch: {
+		attention: function (val, oldVal) {
+			if ( val === true ) {
+				this.componentKey += 1
+			}
+		}
+	}
 }
 </script>
 
