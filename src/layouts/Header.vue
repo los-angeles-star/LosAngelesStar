@@ -41,7 +41,7 @@ img.responsive {
 	height: auto;
 }
 
-.site-header {
+.nameplate {
 	text-align: center;
 
 	.flag {
