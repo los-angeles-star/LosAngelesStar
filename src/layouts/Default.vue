@@ -1,5 +1,5 @@
 <template>
-	<div class="paper" itemscope="" itemtype="http://schema.org/Newspaper" itemid="#app">
+	<div :class="[ 'paper', attention ? '' : 'idle' ]" itemscope="" itemtype="http://schema.org/Newspaper" itemid="#app">
 		<header class="nameplate">
 		<Header v-slot:header :attention="attention"></Header>
 		</header>
