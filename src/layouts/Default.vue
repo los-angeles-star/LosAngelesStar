@@ -1,8 +1,8 @@
 <template>
 	<div class="paper" itemscope="" itemtype="http://schema.org/Newspaper" itemid="#app">
-	    <header class="site-header">
 			<Header v-slot:header></Header>
 			</header>
+		<header class="nameplate">
 		<transition name="fade" appear>
 			<main tabindex="-1" v-cloak>
 				<slot></slot>
@@ -96,7 +96,7 @@ main strong {
 		column-width: auto;
 	}
 }
-.site-header {
+.nameplate {
 	.dateline {
 			display: flex;
 			align-items: center;
@@ -206,4 +206,5 @@ main strong {
 [v-cloak] {
 	display: none;
 }
+
 </style>
