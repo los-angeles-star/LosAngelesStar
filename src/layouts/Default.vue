@@ -1,8 +1,8 @@
 <template>
 	<div class="paper" itemscope="" itemtype="http://schema.org/Newspaper" itemid="#app">
-			<Header v-slot:header></Header>
-			</header>
 		<header class="nameplate">
+		<Header v-slot:header :attention="attention"></Header>
+		</header>
 		<transition name="fade" appear>
 			<main tabindex="-1" v-cloak>
 				<slot></slot>
