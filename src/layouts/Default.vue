@@ -38,16 +38,20 @@ export default {
 		}
 	},
 	created () {
-		// Active
-		window.addEventListener( 'focus', this.onFocus )
+		if (typeof window !== "undefined") {
+			// Active
+			window.addEventListener( 'focus', this.onFocus )
 
-		// Inactive
-		window.addEventListener( 'blur', this.onBlur )
+			// Inactive
+			window.addEventListener( 'blur', this.onBlur )
+		}
 	},
 	destroyed: function () {
-		window.removeEventListener( 'focus', this.onFocus )
+		if (typeof window !== "undefined") {
+			window.removeEventListener( 'focus', this.onFocus )
 
-		window.removeEventListener( 'blur', this.onBlur )
+			window.removeEventListener( 'blur', this.onBlur )
+		}
 	}
 }
 </script>
