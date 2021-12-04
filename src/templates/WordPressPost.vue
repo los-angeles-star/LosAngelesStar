@@ -8,7 +8,7 @@
           <span class="fremont-pub-time">Updated <span class="css-epvm6">12:00 p.m. PT</span></span>
         </time>
       </header>
-      <main v-html="$page.post.fields.content"/>
+      <main v-html="$page.post.content"/>
     </article>
   </Layout>
 </template>
