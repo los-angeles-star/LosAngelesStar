@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <h1 v-html="$page.category.title"/>
-    <div v-html="$page.category.fields.count"/>
+    <div v-html="$page.category.count"/>
   </Layout>
 </template>
 
