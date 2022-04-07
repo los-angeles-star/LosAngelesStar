@@ -7,7 +7,7 @@
 
 <page-query>
   query About {
-    page: wordPressPage (path: "/pages/about/") {
+    page: wordPressPage (path: "/pages/71986/") {
       id
       title
       date
