@@ -59,6 +59,9 @@ export default {
 <style lang="scss">
 @import "~sanitize.css";
 
+$cyan: #00b7eb;
+$yellow: #fff10c;
+
 :root {
 		--color__brand: #f7f7f7;
 		--color__text: #2f2f2f;
@@ -211,4 +214,40 @@ main strong {
 	display: none;
 }
 
+.focus {
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 2vw;
+		left: 2vw;
+		width: calc(100% - 4vw);
+		height: calc(100% - 4vw);
+	}
+
+	&::before {
+		outline: 2vw solid transparentize($cyan, 0.75);
+	}
+
+	&::after {
+		outline: 2vw solid transparentize($yellow, 0.75);
+
+		position: absolute;
+		top: -100%;
+		left: -100%;
+		right: -100%;
+		bottom: -100%;
+		background-blend-mode: multiply;
+		background:
+				radial-gradient(ellipse at 8px 8px, var(--color__process-cyan), white),
+				radial-gradient(ellipse at 8px 8px, var(--color__process-magenta), white),
+				radial-gradient(ellipse at 8px 8px, var(--color__process-yellow), white);
+		background-size: 8px 8px;
+		background-position: 0 -3px, -2px 0, 2px 0;
+		mix-blend-mode: screen;
+		pointer-events: none;
+		transform: rotate(11.25deg);
+	}
+}
 </style>
