@@ -1,37 +1,30 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c6a2bba0-630f-4971-b642-2dc12167ef41/deploy-status)](https://app.netlify.com/sites/losangelesstar/deploys)
 # Los Angeles Star
-JavaScript Client for connecting to and parsing JSON coming from a WordPress REST API plugin
 
-## Install
-`gridsome create my-gridsome-project wordpress`
+We recommend to look at the [documentation](https://nuxtjs.org).
 
-## Guide
+## Setup
 
-Add your WordPress URL to the plugin options.
+Make sure to install the dependencies
 
-```js
-// gridsome.config.js
-
-module.exports = {
-  plugins: [
-    {
-      use: '@gridsome/source-wordpress',
-      options: {
-        baseUrl: 'YOUR_WEBSITE_URL', // required
-        typeName: 'WordPress', // GraphQL schema name (Optional)
-        perPage: 100, // How many posts to load from server per request (Optional)
-        concurrent: 10, // How many requests to run simultaneously (Optional)
-        routes: {
-          post: '/:year/:month/:day/:slug', //adds route for "post" post type (Optional)
-          post_tag: '/tag/:slug' // adds route for "post_tag" post type (Optional)
-        }
-      }
-    }
-  ]
-}
-
+```bash
+yarn install
 ```
 
-## Included templates
+## Development
 
-This starter includes basic templates for categories, tags and posts.
+Start the development server on http://localhost:3000
+
+```bash
+yarn dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+yarn build
+```
+
+Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
