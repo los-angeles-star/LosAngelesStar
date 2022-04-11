@@ -18,7 +18,7 @@
   		<div class="issue" itemprop="hasPart" itemscope="" itemtype="http://schema.org/PublicationIssue" itemid="#iss42"><abbr title="Number">No.</abbr>&nbsp;<span itemprop="issueNumber">42</span>.</div>
   	</div>
   	<nav class="nav">
-  		<Nuxt-link class="nav__link" :to="{ name: 'home' }">Home</Nuxt-link>
+  		<Nuxt-link class="nav__link" to="/">Home</Nuxt-link>
   		<Nuxt-link class="nav__link" to="/about/">About</Nuxt-link>
   	</nav>
   </div>
