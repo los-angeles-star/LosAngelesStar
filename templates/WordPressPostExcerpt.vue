@@ -1,16 +1,16 @@
 <template>
-  <article :key="node.id" class="h-entry" :class="node.id" role="main" itemscope="" itemtype="https://schema.org/NewsArticle">
+  <article :key="post.id" class="h-entry" :class="post.id" role="main" itemscope="" itemtype="https://schema.org/NewsArticle">
     <header>
-      <h2 class="p-name" itemprop="headline">{{ node.title }}</h2>
-      <time class="dt-published" :datetime="node.date" itemprop="datePublished">{{ node.date | formatDate }}</time>
-      <meta itemprop="dateModified" :content="node.modified">
+      <h2 class="p-name" itemprop="headline">{{ post.title.rendered }}</h2>
+      <time class="dt-published" :datetime="post.date" itemprop="datePublished">{{ post.date | formatDate }}</time>
+      <meta itemprop="dateModified" :content="post.modified">
       <span itemprop="publisher" itemscope="itemscope" itemtype="https://schema.org/Organization">
         <meta itemprop="name" content="Los Angeles Star">
-        <meta itemprop="logo" url="@/assets/los-angeles-star-logo.svg">
+        <meta itemprop="logo" url="../assets/los-angeles-star-logo.svg">
       </span>
     </header>
-    <div class="p-summary" v-html="node.excerpt"/>
-    <router-link :to="node.path">Read more</router-link>
+    <div class="p-summary" v-html="post.excerpt.rendered"/>
+    <Nuxt-link :to="post.slug">Read more</Nuxt-link>
   </article>
 </template>
 
@@ -18,11 +18,11 @@
 import dayjs from 'dayjs'
 export default {
   props: {
-    node: {required: true, type: Object},
+    post: {required: true, type: Object},
   },
   filters: {
     formatDate: function (date) {
-      return dayjs(date).format('dddd, MMMM Do, YYYY');
+      return dayjs(date).format('dddd, MMMM D, YYYY');
     }
   }
 }

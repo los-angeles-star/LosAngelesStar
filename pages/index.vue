@@ -1,6 +1,6 @@
 <template>
   <div class="columns">
-      <Article  v-for="{ node } in $page.allWordPressPost.edges" :key="node.id" :node="node" />
+      <Article  v-for="post in $store.state.posts" :key="post.id" :post="post" />
   </div>
   <!-- <Pager :info="$page.allWordPressPost.pageInfo" linkClass="pager-link"/> -->
 </template>
@@ -19,33 +19,6 @@ export default {
       class: 'blog'
     }
   },
-  // apollo: {
-  //   characters: gql`
-  //     query Home ($page: Int) {
-  //       allWordPressPost (perPage: 10, page: $page) @paginate {
-  //         totalCount
-  //         pageInfo {
-  //           totalPages
-  //           currentPage
-  //           isFirst
-  //           isLast
-  //         }
-  //         edges {
-  //           node {
-  //             id
-  //             title
-  //             path
-  //             excerpt
-  //             date
-  //             categories {
-  //               title
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `,
-  // }
 }
 </script>
 
