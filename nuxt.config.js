@@ -12,6 +12,16 @@ let dynamicRoutes = () => {
 }
 
 export default defineNuxtConfig({
+  /*
+   ** Headers
+   ** Common headers are already provided by @nuxtjs/pwa preset
+   */
+  head: {
+    titleTemplate: titleChunk => {
+      // If undefined or blank then we don't need the hyphen
+      return titleChunk ? `${titleChunk} - Los Angeles Star` : "Los Angeles Star";
+    },
+  },
   css: ['~/node_modules/sanitize.css'],
   buildModules: [
     '@nuxtjs/pwa',

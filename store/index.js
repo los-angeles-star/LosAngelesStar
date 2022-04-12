@@ -1,6 +1,7 @@
 const siteURL = "https://css-tricks.com"
 
 export const state = () => ({
+  metadata: [],
   posts: [],
   tags: []
 })
@@ -8,6 +9,9 @@ export const state = () => ({
 export const getters = {};
 
 export const mutations = {
+  updateMetadata: (state, metadata) => {
+    state.metadata = metadata
+  },
   updatePosts: (state, posts) => {
     state.posts = posts
   },
@@ -17,6 +21,25 @@ export const mutations = {
 }
 
 export const actions = {
+  async getMeta({ state, commit }) {
+    if (state.metadata.length) return
+
+    try {
+      let metadata = await fetch(
+        `${siteURL}/wp-json/`
+      ).then(res => res.json())
+
+      metadata = metadata
+        .map(({ name, description }) => ({
+          name,
+          description
+        }))
+
+      commit("updateMetadata", metadata)
+    } catch (err) {
+      console.log(err)
+    }
+  },
   async getPosts({ state, commit, dispatch }) {
     if (state.posts.length) return
 
@@ -34,8 +57,10 @@ export const actions = {
           excerpt,
           date,
           modified,
+          categories,
           tags,
-          content
+          content,
+          featuredMedia
         }))
 
       commit("updatePosts", posts)

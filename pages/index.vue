@@ -6,18 +6,28 @@
 </template>
 
 <script>
-// import Post from '~/templates/WordPressPost.vue'
+import Post from '~/templates/WordPressPost.vue'
 import Article from '~/templates/WordPressPostExcerpt.vue'
 
 export default {
+  name: 'Home',
   components: {
-    // Post,
+    Post,
     Article
   },
   metaInfo: {
+    title: 'The Los Angeles Star',
     bodyAttrs: {
-      class: 'blog'
+      class: ['blog']
     }
+  },
+  computed: {
+    posts() {
+      return this.$store.state.posts;
+    },
+  },
+  created() {
+    this.$store.dispatch("getPosts");
   },
 }
 </script>

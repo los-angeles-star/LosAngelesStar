@@ -1,10 +1,12 @@
 <template>
 	<div slot-scope="{ header }" class="container">
-		<meta itemprop="name" content="">
+		<meta itemprop="name" content="$store.state.metadata.description">
 		<transition name="logo" appear :duration="1500">
 			<div class="flag" :class="[isLoading ? 'logo-enter' : 'loaded', '']" v-once>
 	  		<h1>
-	  			<Nuxt-link :to="{ name: 'home' }" itemprop="url"><img class="logo responsive" src="@/assets/los-angeles-star-logo.svg" alt="$static.metadata.siteName" itemprop="logo"></Nuxt-link>
+	  			<Nuxt-link :to="{ name: 'index' }" itemprop="url">
+						<img class="logo responsive" src="@/assets/los-angeles-star-logo.svg" :alt="$store.state.metadata.name" itemprop="logo">
+					</Nuxt-link>
 	  		</h1>
 	  	</div>
     </transition>
@@ -18,7 +20,7 @@
   		<div class="issue" itemprop="hasPart" itemscope="" itemtype="http://schema.org/PublicationIssue" itemid="#iss42"><abbr title="Number">No.</abbr>&nbsp;<span itemprop="issueNumber">42</span>.</div>
   	</div>
   	<nav class="nav">
-  		<Nuxt-link class="nav__link" to="/">Home</Nuxt-link>
+  		<Nuxt-link class="nav__link" :to="{ name: 'index' }">Home</Nuxt-link>
   		<Nuxt-link class="nav__link" to="/about/">About</Nuxt-link>
   	</nav>
   </div>

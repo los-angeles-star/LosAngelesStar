@@ -28,6 +28,14 @@ export default {
 	data () {
 		return data
 	},
+	computed: {
+		metadata() {
+			return this.$store.metadata;
+		},
+	},
+	created() {
+		this.$store.dispatch("getMeta");
+	},
 	methods: {
 		onFocus: function () {
 			return this.attention = true
