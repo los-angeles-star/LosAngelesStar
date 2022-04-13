@@ -18,7 +18,12 @@ export default {
   methods: {
     currentDate(d) {
       const postDate = new Date(d);
-      const date = `${postDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'America/Los_Angeles' })}`;
+      const date = `${postDate.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        timeZone: 'America/Los_Angeles'
+      })}`;
 			return date;
     }
   },
