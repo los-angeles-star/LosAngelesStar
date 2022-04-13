@@ -29,3 +29,10 @@ export default {
   },
 }
 </script>
+
+<style>
+:where(img, svg, video) {
+  max-width: 100%;
+  height: auto;
+}
+</style>
