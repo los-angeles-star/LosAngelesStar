@@ -40,7 +40,7 @@ export default defineNuxtConfig({
     }
   },
   axios: {
-    baseURL: 'https://thenewinquiry.com/',
+    baseURL: 'http://localhost:3000',
   },
   styleResources: {
     scss: [
