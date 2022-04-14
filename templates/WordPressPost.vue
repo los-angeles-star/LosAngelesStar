@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 :where(img, svg, video) {
   max-width: 100%;
   height: auto;
