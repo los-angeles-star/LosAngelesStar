@@ -50,7 +50,7 @@ export const actions = {
 
       posts = posts
         .filter(el => el.status === "publish")
-        .map(({ id, slug, title, excerpt, date, modified, tags, content }) => ({
+        .map(({ id, slug, title, excerpt, date, modified, categories, tags, content, featuredMedia }) => ({
           id,
           slug,
           title,
