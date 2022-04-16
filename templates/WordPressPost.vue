@@ -64,10 +64,12 @@ blockquote {
 .h-entry {
   h1 {
     font-size: 2.5em;
+    line-height: 1.15;
     margin-left: auto;
     margin-right: auto;
     max-width: $content--width;
     letter-spacing: -0.0125em;
+    font-style: italic;
   }
 
   main {
