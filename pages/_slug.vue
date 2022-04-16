@@ -1,14 +1,4 @@
 <template>
-  <article :key="post.id" class="h-entry" :class="post.id" role="main" itemscope="" itemtype="https://schema.org/NewsArticle">
-    <header>
-      <h1 v-html="post.title.rendered"/>
-      <time :datetime="post.date" class="fremont-pub">
-        <span class="fremont-pub-date" v-html="currentDate(post.date)">Today</span>
-        <span class="fremont-pub-time">Updated <span v-html="currentDate(post.modified)">12:00 p.m. PT</span></span>
-      </time>
-    </header>
-    <main v-html="post.content.rendered"/>
-  </article>
 </template>
 
 <script>
