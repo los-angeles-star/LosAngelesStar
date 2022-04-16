@@ -20,7 +20,7 @@ export default {
       const postDate = new Date(d);
       const date = `${postDate.toLocaleDateString('en-US', {
         year: 'numeric',
-        month: 'short',
+        month: 'long',
         day: 'numeric',
         timeZone: 'America/Los_Angeles'
       })}`;
