@@ -1,12 +1,11 @@
 "use strict";
 
-const apiEndpoint = "thenewinquiry.com";
+const apiEndpoint = "css-tricks.com";
 
 export default {
-  appTitleShort: "L.A. Star",
   appTitle: "Los Angeles Star",
-  appTitleShort: "LA-Star",
-  appDescription: "Nuxt Headless with Wordpress REST API",
+  appTitleShort: "L.A. Star",
+  appDescription: "Los Angeles’ first newspaper since 1852.",
   appThemeColor: "#f7f7f7 ",
   appBgColor: "#00172c ",
   appIcon: "static/icon.png",
