@@ -13,6 +13,14 @@
 
 <script>
 export default {
+  props: {
+    id: Number,
+    title: String,
+    slug: String,
+    date: String,
+    modified: String,
+    content: String
+  },
   methods: {
     currentDate(d) {
       const postDate = new Date(d);
