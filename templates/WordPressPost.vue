@@ -1,5 +1,4 @@
 <template>
-  <Layout>
     <article :key="post.id" class="h-entry" :class="post.id" role="main" itemscope="" itemtype="https://schema.org/NewsArticle">
       <header>
         <h1 v-html="post.title"/>
@@ -10,7 +9,6 @@
       </header>
       <main v-html="post.content"/>
     </article>
-  </Layout>
 </template>
 
 <script>
