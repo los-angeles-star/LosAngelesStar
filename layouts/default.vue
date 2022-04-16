@@ -76,6 +76,7 @@ html {
 }
 body {
 	font-family: "Old Standard TT", Times, "Times New Roman", serif;
+	background-color: var(--color__brand);
 }
 main strong {
 	font-weight: normal;
