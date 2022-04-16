@@ -30,6 +30,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    '@nuxtjs/i18n',
   ],
   pwa: {},
   googleFonts: {

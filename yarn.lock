@@ -383,7 +383,7 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.12.16.tgz#cc31257419d2c3189d394081635703f549fc1ed4"
   integrity sha512-c/+u9cqV6F0+4Hpq01jnJO+GLp2DdT63ppz9Xa+6cHaajM9VFzK/iDXiKK65YtpeVwu+ctfS6iqlMqRgQRzeCw==
 
-"@babel/parser@^7.1.3", "@babel/parser@^7.12.13", "@babel/parser@^7.14.0", "@babel/parser@^7.16.10", "@babel/parser@^7.16.4", "@babel/parser@^7.16.7", "@babel/parser@^7.17.3", "@babel/parser@^7.17.9":
+"@babel/parser@^7.1.3", "@babel/parser@^7.12.13", "@babel/parser@^7.14.0", "@babel/parser@^7.16.10", "@babel/parser@^7.16.4", "@babel/parser@^7.16.7", "@babel/parser@^7.17.3", "@babel/parser@^7.17.8", "@babel/parser@^7.17.9", "@babel/parser@^7.9.6":
   version "7.17.9"
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.17.9.tgz"
   integrity sha512-vqUSBLP8dQHFPdPi9bc5GK9vRkYHJ49fsZdtoJ8EQ8ibpwk5rPKfvNIwChB0KVXcIjcepEBBd2VHC5r9Gy8ueg==
@@ -1545,6 +1545,27 @@
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.1.tgz#076d78ce99822258cf813ecc1e7fa460fa74d052"
   integrity sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==
 
+"@intlify/shared@^9.0.0":
+  version "9.1.9"
+  resolved "https://registry.yarnpkg.com/@intlify/shared/-/shared-9.1.9.tgz#0baaf96128b85560666bec784ffb01f6623cc17a"
+  integrity sha512-xKGM1d0EAxdDFCWedcYXOm6V5Pfw/TMudd6/qCdEb4tv0hk9EKeg7lwQF1azE0dP2phvx0yXxrt7UQK+IZjNdw==
+
+"@intlify/vue-i18n-extensions@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@intlify/vue-i18n-extensions/-/vue-i18n-extensions-1.0.2.tgz#ab7f8507f7d423c368e44fa21d6dece700261fca"
+  integrity sha512-rnfA0ScyBXyp9xsSD4EAMGeOh1yv/AE7fhqdAdSOr5X8N39azz257umfRtzNT9sHXAKSSzpCVhIbMAkp5c/gjQ==
+  dependencies:
+    "@babel/parser" "^7.9.6"
+
+"@intlify/vue-i18n-loader@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@intlify/vue-i18n-loader/-/vue-i18n-loader-1.1.0.tgz#eecc6460823676f533784b3641665c5a609eccf0"
+  integrity sha512-9LXiztMtYKTE8t/hRwwGUp+ofrwU0sxLQLzFEOZ38zvn0DonUIQmZUj1cfz5p1Lu8BllxKbCrn6HnsRJ+LYA6g==
+  dependencies:
+    "@intlify/shared" "^9.0.0"
+    js-yaml "^3.13.1"
+    json5 "^2.1.1"
+
 "@josephg/resolvable@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@josephg/resolvable/-/resolvable-1.0.1.tgz#69bc4db754d79e1a2f17a650d3466e038d94a5eb"
@@ -2085,6 +2106,24 @@
   dependencies:
     consola "^2.15.3"
     google-fonts-helper "^1.2.0"
+
+"@nuxtjs/i18n@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/i18n/-/i18n-7.2.1.tgz#80514689cbc406fde06d6b2d0172ee7d8acd3b78"
+  integrity sha512-VAr/TQNu7rXqJomzcWi1+hhKO+BNfSiHjZSTakM03IaaUwf/lxXnd5MXvn7YHZGNvG1rED8P+bVvzkSwQ4bEGg==
+  dependencies:
+    "@babel/parser" "^7.17.8"
+    "@babel/traverse" "^7.17.3"
+    "@intlify/vue-i18n-extensions" "^1.0.2"
+    "@intlify/vue-i18n-loader" "^1.1.0"
+    cookie "^0.4.2"
+    devalue "^2.0.1"
+    is-https "^4.0.0"
+    js-cookie "^3.0.1"
+    klona "^2.0.5"
+    lodash.merge "^4.6.2"
+    ufo "^0.8.3"
+    vue-i18n "^8.27.1"
 
 "@nuxtjs/proxy@^2.1.0":
   version "2.1.0"
@@ -5217,7 +5256,7 @@ cookie-signature@1.0.6:
   resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
   integrity sha1-4wOogrNCzD7oylE6eZmXNNqzriw=
 
-cookie@0.4.2, cookie@^0.4.0:
+cookie@0.4.2, cookie@^0.4.0, cookie@^0.4.2:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.2.tgz#0e41f24de5ecf317947c82fc789e06a884824432"
   integrity sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==
@@ -8229,6 +8268,11 @@ is-glob@^4.0.0, is-glob@^4.0.1, is-glob@~4.0.1:
   dependencies:
     is-extglob "^2.1.1"
 
+is-https@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/is-https/-/is-https-4.0.0.tgz#9ee725a334fb517b988278d2674efc96e4f348ed"
+  integrity sha512-FeMLiqf8E5g6SdiVJsPcNZX8k4h2fBs1wp5Bb6uaNxn58ufK1axBqQZdmAQsqh0t9BuwFObybrdVJh6MKyPlyg==
+
 is-installed-globally@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/is-installed-globally/-/is-installed-globally-0.4.0.tgz#9a0fd407949c30f86eb6959ef1b7994ed0b7b520"
@@ -8499,6 +8543,11 @@ jiti@^1.12.14, jiti@^1.12.9, jiti@^1.13.0, jiti@^1.9.2:
   resolved "https://registry.npmjs.org/jiti/-/jiti-1.13.0.tgz"
   integrity sha512-/n9mNxZj/HDSrincJ6RP+L+yXbpnB8FybySBa+IjIaoH9FIxBbrbRT5XUbe8R7zuVM2AQqNMNDDqz0bzx3znOQ==
 
+js-cookie@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.1.tgz#9e39b4c6c2f56563708d7d31f6f5f21873a92414"
+  integrity sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
@@ -8564,7 +8613,7 @@ json5@^1.0.1:
   dependencies:
     minimist "^1.2.0"
 
-json5@^2.1.2, json5@^2.2.1:
+json5@^2.1.1, json5@^2.1.2, json5@^2.2.1:
   version "2.2.1"
   resolved "https://registry.npmjs.org/json5/-/json5-2.2.1.tgz"
   integrity sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==
@@ -8852,7 +8901,7 @@ lodash.memoize@^4.1.2:
   resolved "https://registry.npmjs.org/lodash.memoize/-/lodash.memoize-4.1.2.tgz"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
 
-lodash.merge@^4.6.1:
+lodash.merge@^4.6.1, lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
@@ -13901,6 +13950,11 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
+
+vue-i18n@^8.27.1:
+  version "8.27.1"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.27.1.tgz#fe660f6c14793ae404d6a715875d772594a3324f"
+  integrity sha512-lWrGm4F25qReJ7XxSnFVb2h3PfW54ldnM4C+YLBGGJ75+Myt/kj4hHSTKqsyDLamvNYpvINMicSOdW+7yuqgIQ==
 
 vue-loader@^15.9.8:
   version "15.9.8"
