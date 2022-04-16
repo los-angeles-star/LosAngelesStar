@@ -21,8 +21,13 @@ distributions/*/LICENSE
 !.nuxtrc
 .cache
 
-# Dist folders
+# Generated folders
 dist
+.nuxt
+.nuxt-*
+.output
+.gen
+nuxt.d.ts
 
 # Junit reports
 reports
