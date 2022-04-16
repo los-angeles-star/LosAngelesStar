@@ -1,4 +1,6 @@
-const siteURL = "https://css-tricks.com"
+import Config from '~/assets/config'
+
+const siteURL = Config.wpDomain
 
 export const state = () => ({
   metadata: [],
