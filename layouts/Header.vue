@@ -10,10 +10,13 @@
 	  		</h1>
 	  	</div>
     </transition>
-		<aside class="ear">
-			<WeatherEar  :attention="attention" :key="componentKey" />
-			<StockEar :attention="attention" />
-		</aside>
+		<section id="masthead-bar">
+			<div class="ear left"></div>
+			<div class="ear right">
+				<WeatherEar  :attention="attention" :key="componentKey" />
+				<StockEar :attention="attention" />
+			</div>
+		</section>
   	<div class="dateline">
   		<div class="volume" itemprop="hasPart" itemscope="" itemtype="http://schema.org/PublicationVolume" itemid="#vol1"><abbr title="Volume">Vol.</abbr>&nbsp;<span itemprop="volumeNumber">1</span>.</div>
   		<div class="date">Los Angeles, <time datetime="1852-02-28" pubdate="pubdate dt-published" itemprop="datePublished">Saturday, February 28, 1852</time>.</div>
@@ -114,6 +117,36 @@ img.responsive {
 		}
 		&::after {
 			order: 2;
+		}
+	}
+
+	section {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		font-size: 11px;
+		padding: 13px 20px 12px;
+		border-bottom: 1px solid #e2e2e2;
+
+		@media screen and (min-width: 740px) {
+			position: relative;
+		}
+
+		@media screen and (min-width: 1024px) {
+			align-items: flex-end;
+			justify-content: space-between;
+			border: none;
+			padding: 0;
+			height: 0;
+			transform: translateY(-18px);
+		}
+	}
+
+	.ear.right {
+		display: none;
+
+		@media screen and (min-width: 1024px) {
+			display: unset;
 		}
 	}
 }

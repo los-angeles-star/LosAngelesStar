@@ -13,11 +13,11 @@
 export default {
   props: {
     id: Number,
-    title: String,
+    title: Object,
     slug: String,
     date: String,
     modified: String,
-    content: String
+    content: Object
   },
   methods: {
     currentDate(d) {

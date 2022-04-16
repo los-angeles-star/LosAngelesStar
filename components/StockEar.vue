@@ -95,6 +95,11 @@ export default {
 
 <style lang="scss" scoped>
 .stocks {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 105px;
+
   dl {
     height: 1.125em;
     max-height: 1.15em;
