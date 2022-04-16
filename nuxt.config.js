@@ -43,6 +43,10 @@ export default defineNuxtConfig({
   axios: {
     baseURL: 'http://localhost:3000',
   },
+  plugins: [
+    "~/plugins/posts.server.js",
+    "~/plugins/dateFormat.js"
+  ],
   styleResources: {
     scss: [
       './assets/vars/*.scss',
