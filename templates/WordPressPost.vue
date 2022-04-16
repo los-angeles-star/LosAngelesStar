@@ -5,6 +5,7 @@
       </header>
       <main v-html="post.content"/>
     </article>
+      <meta itemprop="url" :content="slug">
       <article-date-line :date="date" :modified="modified" />
 </template>
 
