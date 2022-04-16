@@ -1,12 +1,12 @@
 <template>
-    <article :key="post.id" class="h-entry" :class="post.id" role="main" itemscope="" itemtype="https://schema.org/NewsArticle">
-      <header>
-        <h1 v-html="post.title"/>
-      </header>
-      <main v-html="post.content"/>
-    </article>
+  <article :key="id" class="h-entry" :class="id" role="main" itemscope="" itemtype="https://schema.org/NewsArticle">
+    <header>
+      <h1 v-html="title.rendered"/>
       <meta itemprop="url" :content="slug">
       <article-date-line :date="date" :modified="modified" />
+    </header>
+    <main v-html="content.rendered"/>
+  </article>
 </template>
 
 <script>
