@@ -47,6 +47,9 @@ export default defineNuxtConfig({
     "~/plugins/posts.server.js",
     "~/plugins/dateFormat.js"
   ],
+  generate: {
+    routes: dynamicRoutes
+  },
   styleResources: {
     scss: [
       './assets/vars/*.scss',
