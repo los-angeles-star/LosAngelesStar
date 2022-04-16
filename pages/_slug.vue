@@ -1,8 +1,14 @@
 <template>
+  <post :key="post.id" v-bind="post" />
 </template>
 
 <script>
+import Post from '~/templates/WordPressPost.vue'
+
 export default {
+  components: {
+    Post
+  },
   computed: {
     posts() {
       return this.$store.state.posts;
