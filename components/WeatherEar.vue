@@ -167,7 +167,7 @@ export default {
 <style lang="scss" scoped>
 .forecast {
   font-size: 0.625rem;
-  color: #121212;
+  color: var(--color__text--dark);
   font-weight: 500;
   margin-bottom: 6px;
 
@@ -183,6 +183,6 @@ export default {
 }
 .low {
   margin-left: 2px;
-  color: #717171;
+  color: var(--color__text--light);
 }
 </style>

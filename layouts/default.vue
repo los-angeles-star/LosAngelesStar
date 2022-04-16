@@ -65,6 +65,8 @@ export default {
 :root {
 		--color__brand: #f7f7f7;
 		--color__text: #2f2f2f;
+		--color__text--dark: #121212;
+		--color__text--light: #717171;
 		--color__border: var(--color__text);
 		--color__process-cyan: #00b7eb;
 		--color__process-magenta: #cc006b;
