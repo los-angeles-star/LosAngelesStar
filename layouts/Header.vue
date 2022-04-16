@@ -19,12 +19,14 @@
 		</section>
   	<div class="dateline">
   		<div class="volume" itemprop="hasPart" itemscope="" itemtype="http://schema.org/PublicationVolume" itemid="#vol1"><abbr title="Volume">Vol.</abbr>&nbsp;<span itemprop="volumeNumber">1</span>.</div>
-  		<div class="date">Los Angeles, <time datetime="1852-02-28" pubdate="pubdate dt-published" itemprop="datePublished">Saturday, February 28, 1852</time>.</div>
+  		<div class="date">{{ $t('los_angeles') }}, <time datetime="1852-02-28" pubdate="pubdate dt-published" itemprop="datePublished">Saturday, February 28, 1852</time>.</div>
   		<div class="issue" itemprop="hasPart" itemscope="" itemtype="http://schema.org/PublicationIssue" itemid="#iss42"><abbr title="Number">No.</abbr>&nbsp;<span itemprop="issueNumber">42</span>.</div>
   	</div>
   	<nav class="nav">
-  		<Nuxt-link class="nav__link" :to="{ name: 'index' }">Home</Nuxt-link>
-  		<Nuxt-link class="nav__link" to="/about/">About</Nuxt-link>
+  		<Nuxt-link class="nav__link" :to="localePath({ name: 'index'})">{{ $t('home') }}</Nuxt-link>
+  		<Nuxt-link class="nav__link" to="/about/">{{ $t('about') }}</Nuxt-link>
+			<nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
+			<nuxt-link :to="switchLocalePath('es')">Español</nuxt-link>
   	</nav>
   </div>
 </template>

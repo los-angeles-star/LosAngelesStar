@@ -2,7 +2,7 @@
   <div class="forecast">
     <div>
       <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 512 512">
-        <title>Today's weather: {{ weather.temperature | fahrenheit }}&thinsp;°F and {{ weather.description }}</title>
+        <title>{{ $t('weather.svg.today') }} {{ weather.temperature | fahrenheit }}&thinsp;°F and {{ weather.description }}</title>
         <g v-if="weather.description = 'Clear'">
           <path v-if="time == 'day'" fill="#1d1d1b" fill-rule="evenodd" d="M256 144a112 112 0 1 0 0 224 112 112 0 0 0 0-224zm0 192a80 80 0 1 1 0-160 80 80 0 0 1 0 160zm0-224c9 0 16-7 16-16V64a16 16 0 0 0-32 0v32c0 9 7 16 16 16zm0 288c-9 0-16 7-16 16v32a16 16 0 0 0 32 0v-32c0-9-7-16-16-16zm124-246 23-22a16 16 0 1 0-23-23l-22 23a16 16 0 1 0 22 22zM132 358l-23 22a16 16 0 1 0 23 23l22-23a16 16 0 1 0-22-22zm-20-102c0-9-7-16-16-16H64a16 16 0 0 0 0 32h32c9 0 16-7 16-16zm336-16h-32a16 16 0 0 0 0 32h32a16 16 0 0 0 0-32zm-316-86a16 16 0 1 0 22-22l-22-23a16 16 0 1 0-23 23l23 22zm248 204a16 16 0 1 0-22 22l22 23a16 16 0 1 0 23-23l-23-22z"/>
           <path fill="#1d1d1b" d="M350 343a128 128 0 1 1-133-211 16 16 0 0 1 20 21 95 95 0 0 0 122 122c6-2 13-1 17 4 4 4 6 11 4 16-7 19-17 35-30 48zM191 185a96 96 0 1 0 143 127 127 127 0 0 1-134-134l-9 7z"/>
@@ -23,8 +23,8 @@
           <path fill="#1d1d1b" d="M350 343a128 128 0 1 1-133-211 16 16 0 0 1 20 21 95 95 0 0 0 122 122c6-2 13-1 17 4 4 4 6 11 4 16-7 19-17 35-30 48zM191 185a96 96 0 1 0 143 127 127 127 0 0 1-134-134l-9 7z"/>
         </g>
       </svg>
-      <span class="current" v-show="weather.temperature"><span class="visually-hidden">Current temperature:</span>{{ weather.temperature | fahrenheit | integer }}&thinsp;<abbr title="degrees Fahrenheit">&deg;F</abbr></span>
-      <span class="range"><span class="visually-hidden">Today’s high temperature:</span>{{ weather.high | fahrenheit | integer }}&thinsp;&deg; <span class="low" v-show="weather.low"><span class="visually-hidden">Today’s low temperature:</span>{{ weather.low | fahrenheit }}&deg;</span></span>
+      <span class="current" v-show="weather.temperature"><span class="visually-hidden">{{ $t('weather.current_temp') }}</span>{{ weather.temperature | fahrenheit | integer }}&thinsp;<abbr :title="$t('weather.degrees_f')">&deg;F</abbr></span>
+      <span class="range"><span class="visually-hidden">{{ $t('weather.high_temp') }}</span>{{ weather.high | fahrenheit | integer }}&thinsp;&deg; <span class="low" v-show="weather.low"><span class="visually-hidden">{{ $t('weather.low_temp') }}</span>{{ weather.low | fahrenheit }}&deg;</span></span>
     </div>
   </div>
 </template>
