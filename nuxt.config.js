@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/node_modules/sanitize.css'],
+  components: true,
   buildModules: [
     '@nuxtjs/pwa',
     '@nuxtjs/google-fonts',
