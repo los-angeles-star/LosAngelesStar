@@ -1,10 +1,10 @@
 <template>
   <div>
     <time :datetime="date">
-      <span v-html="currentDate(date)">Today</span>
+      <span v-html="currentDate(date)">{{ $t('article.dateline.today') }}</span>
     </time>
     <time :datetime="modified">
-      <span>Updated <span v-html="currentDate(modified)">12:00 p.m. PT</span></span>
+      <span>{{ $t('article.dateline.updated') }} <span v-html="currentDate(modified)">12:00 p.m. PT</span></span>
     </time>
   </div>
 </template>
