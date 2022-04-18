@@ -25,8 +25,7 @@
   	<nav class="nav">
   		<Nuxt-link class="nav__link" :to="localePath({ name: 'index'})">{{ $t('home') }}</Nuxt-link>
   		<Nuxt-link class="nav__link" to="/about/">{{ $t('about') }}</Nuxt-link>
-			<nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
-			<nuxt-link :to="switchLocalePath('es')">Español</nuxt-link>
+			<Nuxt-link v-for="lang in $i18n.locales" :key="lang.code" class="nav__link" :to="switchLocalePath(lang.code)">{{ lang.name }}</Nuxt-link>
   	</nav>
   </div>
 </template>
