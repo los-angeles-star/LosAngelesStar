@@ -1,10 +1,10 @@
 <template>
   <div>
     <time :datetime="date">
-      <span v-html="currentDate(date)">{{ $t('article.dateline.today') }}</span>
+      <span v-html="$d( new Date(date), 'short' )">{{ $t('article.dateline.today') }}</span>
     </time>
     <time :datetime="modified">
-      <span>{{ $t('article.dateline.updated') }} <span v-html="currentDate(modified)">12:00 p.m. PT</span></span>
+      <span>{{ $t('article.dateline.updated') }} <span v-html="$d( new Date(modified), 'short' )">12:00 p.m. PT</span></span>
     </time>
   </div>
 </template>
@@ -14,18 +14,6 @@ export default {
   props: {
     date: String,
     modified: String
-  },
-  methods: {
-    currentDate(d) {
-      const postDate = new Date(d);
-      const date = `${postDate.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        timeZone: 'America/Los_Angeles'
-      })}`;
-			return date;
-    }
   },
 }
 </script>

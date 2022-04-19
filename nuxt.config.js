@@ -102,7 +102,7 @@ export default defineNuxtConfig({
         en: {
           short: {
             year: 'numeric',
-            month: 'short',
+            month: 'long',
             day: 'numeric'
           },
           long: {
@@ -115,7 +115,7 @@ export default defineNuxtConfig({
         es: {
           short: {
             year: 'numeric',
-            month: 'short',
+            month: 'long',
             day: 'numeric'
           },
           long: {
