@@ -12,6 +12,12 @@ export default async (context, locale) => {
       low_temp: 'Today’s low temperature:',
       degrees_f: 'degrees Fahrenheit'
     },
+    'dateline': {
+      volume: 'Volume',
+      vol: 'Vol.',
+      number: 'Number',
+      no: 'No.'
+    },
     'article': {
       'dateline': {
         today: 'Today',

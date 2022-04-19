@@ -97,7 +97,35 @@ export default defineNuxtConfig({
       }
     },
     vueI18n: {
-      fallbackLocale: 'en'
+      fallbackLocale: 'en',
+      dateTimeFormats: {
+        en: {
+          short: {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          },
+          long: {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            weekday: 'long'
+          }
+        },
+        es: {
+          short: {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          },
+          long: {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            weekday: 'long'
+          }
+        }
+      }
     }
   }
 })
