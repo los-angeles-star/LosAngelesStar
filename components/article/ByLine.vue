@@ -1,7 +1,25 @@
 <template>
   <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-    <link itemprop="sameas" :href="author.url">
-    <Nuxt-link :to="'author/'+author.slug"><img v-if="author.avatar_urls" :alt="author.name" :src="author.avatar_urls[48]" itemprop="image"/></Nuxt-link> <span>{{ $t('article.byline.by') }}</span><span itemprop="name"><Nuxt-link :to="'author/'+author.slug">{{ author.name }}</Nuxt-link></span>
+    <div>
+      <div>
+        <link itemprop="sameas" :href="author.url">
+        <Nuxt-link :to="'author/'+author.slug">
+          <img
+            v-if="author.avatar_urls"
+            :alt="author.name"
+            :srcset="
+              author.avatar_urls[96] + ' 2x, ' +
+              author.avatar_urls[48] + ' 1x, ' +
+              author.avatar_urls[24] + ' 0.5x'
+            "
+            :src="author.avatar_urls[24]"
+            itemprop="image"/>
+        </Nuxt-link>
+      </div>
+      <div>
+        <span>{{ $t('article.byline.by') }}</span><span itemprop="name"><Nuxt-link :to="'author/'+author.slug">{{ author.name }}</Nuxt-link></span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -29,12 +47,26 @@ export default {
 <style lang="scss" scoped>
 $content--width: 688px;
 
-div {
+div[itemprop="author"] {
   max-width: $content--width;
   margin-left: calc((100% - $content--width) / 2);
+
+  & > div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+}
+
+a {
+  display: inline-block;
 }
 
 img {
+  width: 48px;
+  margin-right: 8px;
   border-radius: 50%;
+  vertical-align: bottom;
 }
 </style>
