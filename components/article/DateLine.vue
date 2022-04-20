@@ -1,10 +1,10 @@
 <template>
   <div>
     <time :datetime="date">
-      <span v-html="$d( new Date(date), 'short' )">{{ $t('article.dateline.today') }}</span>
+      <span v-html="$d( new Date(date), 'short' )" itemprop="datePublished">{{ $t('article.dateline.today') }}</span>
     </time>
     <time :datetime="modified">
-      <span>{{ $t('article.dateline.updated') }} <span v-html="$d( new Date(modified), 'short' )">12:00 p.m. PT</span></span>
+      <span>{{ $t('article.dateline.updated') }} <span v-html="$d( new Date(modified), 'short' )" itemprop="dateModified">12:00 p.m. PT</span></span>
     </time>
   </div>
 </template>
