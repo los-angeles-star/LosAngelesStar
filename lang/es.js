@@ -22,6 +22,9 @@ export default async (context, locale) => {
       'dateline': {
         today: 'Hoy',
         updated: 'Actualizado'
+      },
+      'byline': {
+        by: 'Por '
       }
     }
   })
