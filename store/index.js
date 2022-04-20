@@ -5,6 +5,7 @@ const siteURL = Config.wpDomain
 export const state = () => ({
   metadata: [],
   posts: [],
+  currentAuthor: [],
   tags: []
 })
 
@@ -16,6 +17,10 @@ export const mutations = {
   },
   updatePosts: (state, posts) => {
     state.posts = posts
+  },
+  updateCurrentAuthor: (state, author) => {
+    state.currentAuthor = author
+    state.authors.push(author)
   },
   updateTags: (state, tags) => {
     state.tags = tags
@@ -67,6 +72,19 @@ export const actions = {
         }))
 
       commit("updatePosts", posts)
+    } catch (err) {
+      console.log(err)
+    }
+  },
+  async getCurrentAuthor({ state, commit }, data) {
+    if (state.currentAuthor.length) return
+
+    try {
+      let currentAuthor = await fetch(
+        `${siteURL}/wp-json/wp/v2/users/${data.authorId}`
+      ).then(res => res.json())
+
+      commit("updateCurrentAuthor", currentAuthor)
     } catch (err) {
       console.log(err)
     }
