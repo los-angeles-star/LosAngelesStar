@@ -4,6 +4,7 @@
       <h1 v-html="title.rendered"/>
       <meta itemprop="url" :content="slug">
       <article-date-line :date="date" :modified="modified" />
+      <article-by-line v-if="author" :key="author" :authorId="author" />
     </header>
     <main v-html="content.rendered"/>
   </article>
