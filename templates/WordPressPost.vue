@@ -1,5 +1,5 @@
 <template>
-  <article :key="id" class="h-entry" :class="id" role="main" itemscope="" itemtype="https://schema.org/NewsArticle">
+  <article :key="id" class="h-entry" :class="'post-'+id" role="main" itemscope="" itemtype="https://schema.org/NewsArticle">
     <header>
       <h1 v-html="title.rendered"/>
       <meta itemprop="url" :content="slug">
