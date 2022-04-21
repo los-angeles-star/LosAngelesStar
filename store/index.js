@@ -57,7 +57,7 @@ export const actions = {
 
       posts = posts
         .filter(el => el.status === "publish")
-        .map(({ id, slug, title, excerpt, date, modified, author, categories, tags, content, featuredMedia }) => ({
+        .map(({ id, slug, title, excerpt, date, modified, author, categories, tags, content, featured_media, link }) => ({
           id,
           slug,
           title,
@@ -68,7 +68,8 @@ export const actions = {
           categories,
           tags,
           content,
-          featuredMedia
+          featured_media,
+          link
         }))
 
       commit("updatePosts", posts)
