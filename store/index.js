@@ -6,6 +6,7 @@ export const state = () => ({
   metadata: [],
   posts: [],
   currentAuthor: {},
+  postMedia: {},
   tags: []
 })
 
@@ -21,6 +22,9 @@ export const mutations = {
   updateCurrentAuthor: (state, author) => {
     state.currentAuthor = author
     state.authors.push(author)
+  },
+  updatePostMedia: (state, postMedia) => {
+    state.postMedia = postMedia
   },
   updateTags: (state, tags) => {
     state.tags = tags
@@ -86,6 +90,19 @@ export const actions = {
       ).then(res => res.json())
 
       commit("updateCurrentAuthor", currentAuthor)
+    } catch (err) {
+      console.log(err)
+    }
+  },
+  async getPostMedia({ state, commit }, data) {
+    if (state.postMedia.length) return
+
+    try {
+      let postMedia = await fetch(
+        `${siteURL}/wp-json/wp/v2/media/${data.featuredMedia}`
+      ).then(res => res.json())
+
+      commit("updatePostMedia", postMedia)
     } catch (err) {
       console.log(err)
     }
