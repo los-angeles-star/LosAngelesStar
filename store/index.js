@@ -5,7 +5,7 @@ const siteURL = Config.wpDomain
 export const state = () => ({
   metadata: [],
   posts: [],
-  currentAuthor: [],
+  currentAuthor: {},
   tags: []
 })
 
