@@ -2,10 +2,9 @@
   <div itemprop="author" itemscope itemtype="https://schema.org/Person">
     <div>
       <div>
-        <link itemprop="sameas" :href="author.url">
-        <Nuxt-link :to="'author/'+author.slug">
+        <link v-if="author.url" itemprop="sameas" :href="author.url">
+        <Nuxt-link v-if="author.avatar_urls" :to="'author/'+author.slug">
           <img
-            v-if="author.avatar_urls"
             :alt="author.name"
             :srcset="
               author.avatar_urls[96] + ' 2x, ' +
