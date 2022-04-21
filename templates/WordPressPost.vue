@@ -20,7 +20,11 @@ export default {
     author: Number,
     date: String,
     modified: String,
-    content: Object
+    featured_media: Number,
+    excerpt: Object,
+    content: Object,
+    categories: Array,
+    tags: Array
   },
 }
 </script>
