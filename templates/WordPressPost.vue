@@ -2,7 +2,7 @@
   <article :key="id" class="h-entry" :class="'post-'+id" role="main" itemscope="" itemtype="https://schema.org/NewsArticle">
     <header>
       <h1 v-html="title.rendered" itemprop="headline"/>
-      <meta itemprop="url" :content="slug">
+      <meta itemprop="url" :content="link">
       <article-date-line :date="date" :modified="modified" />
       <article-by-line v-if="author" :key="author" :authorId="author" />
     </header>
