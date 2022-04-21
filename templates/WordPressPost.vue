@@ -6,6 +6,7 @@
       <article-date-line :date="date" :modified="modified" />
       <article-by-line v-if="author" :key="author" :authorId="author" />
     </header>
+    <meta itemprop="thumbnailUrl" :content="featured_media">
     <main v-html="content.rendered" itemprop="articleBody"/>
   </article>
 </template>
