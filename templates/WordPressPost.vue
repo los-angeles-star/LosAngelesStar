@@ -16,6 +16,7 @@ export default {
     id: Number,
     title: Object,
     slug: String,
+    link: String,
     author: Number,
     date: String,
     modified: String,
