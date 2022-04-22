@@ -1,5 +1,5 @@
 <template>
-  <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+  <div :class="['article-byline', author.avatar_urls ? 'has-avatar' : '']" itemprop="author" itemscope itemtype="https://schema.org/Person">
     <div>
       <div>
         <link v-if="author.url" itemprop="sameas" :href="author.url">
