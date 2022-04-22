@@ -35,13 +35,30 @@ export default {
 <style lang="scss" scoped>
 $content--width: 688px;
 
+.featured-media {
+  margin-top: 2.375;
+}
+
 figure {
   max-width: $content--width;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 2.75em;
 
   & > div {
     position: relative;
+  }
+
+  figcaption {
+    font-size: 0.9375em;
+    line-height: 1.06667;
+    margin-top: 1.33333em;
+    color: #666;
+    margin-right: 2.13333em;
+
+    p {
+      margin: 0;
+    }
   }
 }
 

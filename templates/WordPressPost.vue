@@ -59,14 +59,26 @@ blockquote {
 }
 
 .h-entry {
+  margin-top: 3.8125em;
+
   h1 {
     font-size: 2.5em;
-    line-height: 1.15;
-    margin-left: auto;
-    margin-right: auto;
+    line-height: 1.2;
+    margin: 0 auto;
     max-width: $content--width;
     letter-spacing: -0.0125em;
     font-style: italic;
+  }
+
+  .lead {
+    padding: 0 calc((100% - $content--width) / 2);
+    font-size: 23px;
+    margin-top: 12px;
+    line-height: 32px;
+
+    p {
+      margin: 0;
+    }
   }
 
   main {

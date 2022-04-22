@@ -24,6 +24,7 @@ $content--width: 688px;
 div {
   max-width: $content--width;
   margin-left: calc((100% - $content--width) / 2);
+  margin-bottom: 8px;
 }
 
 time {

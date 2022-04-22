@@ -49,6 +49,11 @@ $content--width: 688px;
 div[itemprop="author"] {
   max-width: $content--width;
   margin-left: calc((100% - $content--width) / 2);
+  margin-bottom: 1.1875em;
+
+  &.has-avatar {
+    margin-bottom: 1.6875em;
+  }
 
   & > div {
     display: flex;

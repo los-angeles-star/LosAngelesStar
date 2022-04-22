@@ -152,8 +152,16 @@ main strong {
 .entry-summary {
 	text-align: justify;
 }
+.nav {
+	position: absolute;
+	top: 6px;
+	left: 0;
+	width: 100%;
+}
 .nav__link {
+	display: inline-block;
 	margin-left: 20px;
+	line-height: 34px;
 }
 .article {
 	max-width: 600px;
