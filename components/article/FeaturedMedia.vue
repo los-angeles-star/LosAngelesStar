@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   props: {
     featuredMedia: {
@@ -24,11 +26,9 @@ export default {
       featuredMedia: this.featuredMedia
     })
   },
-  computed: {
-    media() {
-      return this.$store.state.postMedia;
-    },
-  }
+  computed: mapState({
+    media: state => state.postMedia
+  })
 }
 </script>
 
