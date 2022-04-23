@@ -10,7 +10,7 @@
       </span>
     </header>
     <div class="p-summary" v-html="post.excerpt.rendered"/>
-    <Nuxt-link :to="post.slug">Read more</Nuxt-link>
+    <NuxtLink :to="localePath({ name: 'slug', params: { slug: post.slug } })">Read more</NuxtLink>
   </article>
 </template>
 
