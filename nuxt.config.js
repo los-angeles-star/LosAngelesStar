@@ -55,6 +55,7 @@ export default defineNuxtConfig({
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     '@nuxtjs/i18n',
+    '@nuxtjs/stylelint-module'
   ],
   pwa: {},
   googleFonts: {
