@@ -19,6 +19,9 @@ export default async (context, locale) => {
       no: 'No.'
     },
     'article': {
+      'excerpt': {
+        read_more: 'Read more'
+      },
       'dateline': {
         today: 'Today',
         updated: 'Updated'
