@@ -4,9 +4,9 @@
 		<transition name="logo" appear :duration="1500">
 			<div class="flag" :class="[isLoading ? 'logo-enter' : 'loaded', '']" v-once>
 	  		<h1>
-	  			<Nuxt-link :to="{ name: 'index' }" itemprop="url">
+	  			<NuxtLink :to="localePath({ name: 'index' })" itemprop="url">
 						<img class="logo responsive" src="@/assets/los-angeles-star-logo.svg" :alt="$store.state.metadata.name" itemprop="logo">
-					</Nuxt-link>
+					</NuxtLink>
 	  		</h1>
 	  	</div>
     </transition>
@@ -23,9 +23,9 @@
   		<div class="issue" itemprop="hasPart" itemscope="" itemtype="http://schema.org/PublicationIssue" itemid="#iss42"><abbr :title="$t('dateline.number')">{{ $t('dateline.no') }}</abbr>&nbsp;<span itemprop="issueNumber">42</span>.</div>
   	</div>
   	<nav class="nav">
-  		<Nuxt-link class="nav__link" :to="localePath(index)">{{ $t('home') }}</Nuxt-link>
-  		<Nuxt-link class="nav__link" to="/about/">{{ $t('about') }}</Nuxt-link>
-			<Nuxt-link v-for="lang in $i18n.locales" :key="lang.code" class="nav__link" :to="switchLocalePath(lang.code)">{{ lang.name }}</Nuxt-link>
+  		<NuxtLink class="nav__link" :to="localePath({ name: 'index' })">{{ $t('home') }}</NuxtLink>
+  		<NuxtLink class="nav__link" to="/about/">{{ $t('about') }}</NuxtLink>
+			<NuxtLink v-for="lang in $i18n.locales" :key="lang.code" class="nav__link" :to="switchLocalePath(lang.code)">{{ lang.name }}</NuxtLink>
   	</nav>
   </div>
 </template>
