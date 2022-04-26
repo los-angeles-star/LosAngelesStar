@@ -26,9 +26,18 @@ export default {
       featuredMedia: this.featuredMedia
     })
   },
-  computed: mapState({
-    media: state => state.postMedia
-  })
+  computed: {
+    ...mapState({
+      media: 'postMedia'
+    }),
+    isLoaded() {
+      if (Object.keys(this.media).length >= 1) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
 }
 </script>
 
