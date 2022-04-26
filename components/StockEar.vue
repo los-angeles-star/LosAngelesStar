@@ -130,16 +130,16 @@ export default {
     }
   }
   .name {
-    color: rgb(18, 18, 18);
+    color: var(--color__text--dark);
     font-size: 0.75rem;
   }
   .change {
     margin: 0;
     &.positive {
-      color: #3a7f36;
+      color: var(--color__info--positive);
     }
     &.negative {
-      color: rgb(166, 27, 30);
+      color: var(--color__info--negative);
     }
     span {
       font-size: 0.75rem;

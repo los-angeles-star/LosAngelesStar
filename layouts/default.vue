@@ -72,6 +72,23 @@ export default {
 		--color__process-magenta: #cc006b;
 		--color__process-yellow: #fff10c;
 		--color__process-black: #000;
+		--color__link: var(--color__process-cyan);
+		--color__link--visited: #551a8b;
+		--color__link--active: var(--color__process-magenta);
+		--color__link--active-visited: #88aaff;
+		--color__info--positive: #3a7f36;
+		--color__info--negative: rgb(166, 27, 30);
+
+		@media (prefers-color-scheme: dark) {
+			--color__brand: #222;
+			--color__text: #f7f7f7;
+			--color__text--dark: color.invert(var(--color__text--dark));
+			--color__text--light: color.invert(var(--color__text--light));
+			--color__process-cyan: rgb(0, 186, 237);
+			--color__process-magenta: rgb(255, 131, 195);
+			--color__info--positive: #27c71f;
+			--color__info--negative: #ff8a8c;
+		}
 }
 html {
 	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
@@ -79,6 +96,7 @@ html {
 body {
 	font-family: "Old Standard TT", Times, "Times New Roman", serif;
 	background-color: var(--color__brand);
+	color: var(--color__text);
 }
 main strong {
 	font-weight: normal;
