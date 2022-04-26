@@ -21,7 +21,7 @@ export default {
       required: true
     }
   },
-  mounted() {
+  created() {
     this.$store.dispatch('getPostMedia', {
       featuredMedia: this.featuredMedia
     })
