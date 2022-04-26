@@ -211,6 +211,38 @@ main strong {
 		animation: none;
 	}
 }
+.focus {
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 2vw;
+		left: 2vw;
+		width: calc(100% - 4vw);
+		height: calc(100% - 4vw);
+	}
+	&::before {
+		outline: 2vw solid transparentize($cyan, 0.75);
+	}
+	&::after {
+		outline: 2vw solid transparentize($yellow, 0.75);
+		position: absolute;
+		top: -100%;
+		left: -100%;
+		right: -100%;
+		bottom: -100%;
+		background-blend-mode: multiply;
+		background:
+				radial-gradient(ellipse at 8px 8px, var(--color__process-cyan), white),
+				radial-gradient(ellipse at 8px 8px, var(--color__process-magenta), white),
+				radial-gradient(ellipse at 8px 8px, var(--color__process-yellow), white);
+		background-size: 8px 8px;
+		background-position: 0 -3px, -2px 0, 2px 0;
+		mix-blend-mode: screen;
+		pointer-events: none;
+		transform: rotate(11.25deg);
+	}
+}
 @keyframes going {
 	from {
 		transform: translate3d(0, 0, 0);
