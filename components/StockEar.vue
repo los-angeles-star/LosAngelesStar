@@ -150,6 +150,9 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 1s ease;
+  @media (prefers-reduced-motion) {
+    transition: opacity 1s ease;
+  }
 }
 .fade-enter-to,
 .fade-leave-to
@@ -158,6 +161,9 @@ export default {
 }
 .fade-move {
   transition: transform .5s;
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
 }
 @media (prefers-reduced-motion) {
   .fade-move {

@@ -61,6 +61,32 @@ img.responsive {
 	max-width: 100%;
 	height: auto;
 }
+.logo-enter {
+	&::before {
+		height: 100vh;
+	}
+	h1 {
+		opacity: 0;
+		transform: translate3d(0, 33vh, 50px) scale(1.25);
+	}
+}
+.logo-enter-active {
+	&::before {
+		animation: reveal-bottom 250ms cubic-bezier(0.4, 0.0, 0.2, 1) 1.25s backwards;
+		@media (prefers-reduced-motion) {
+			animation: fade-out 250ms cubic-bezier(0.4, 0.0, 0.2, 1) 1.25s backwards;
+		}
+	}
+	h1 {
+		position: relative;
+		z-index: 2;
+		animation: phase-in 150ms cubic-bezier(0.0, 0.0, 0.2, 1) 0 backwards,
+				zoom-out-up 250ms cubic-bezier(0.0, 0.0, 0.2, 1) 1s backwards;
+		@media (prefers-reduced-motion) {
+			animation: none;
+		}
+	}
+}
 .nameplate {
 	text-align: center;
 	.flag {
@@ -74,6 +100,21 @@ img.responsive {
 			left: 0;
 			right: 0;
 			z-index: 1;
+		}
+		h1 {
+			margin-top: 0.65625in;
+			margin-bottom: 0;
+			font-family: "Old English", "Agincourt", "Fette Fraktur", "FF Brokenscript", "Lucida Blackletter", fantasy;
+		}
+		a {
+			display: inline-block;
+			text-decoration: none;
+		}
+		.logo {
+			width: 73.81643%;
+			@media screen and (min-width: 12in) {
+				width: auto;
+			}
 		}
 		&.loading {
 			&::before {
@@ -92,20 +133,8 @@ img.responsive {
 				// TBD
 			}
 		}
-		h1 {
-			margin-top: 0.65625in;
-			margin-bottom: 0;
-			font-family: "Old English", "Agincourt", "Fette Fraktur", "FF Brokenscript", "Lucida Blackletter", fantasy;
-		}
-		a {
-			display: inline-block;
-			text-decoration: none;
-		}
-		.logo {
-			width: 73.81643%;
-			@media screen and (min-width: 12in) {
-				width: auto;
-			}
+		@media (prefers-reduced-motion) {
+			transition: none;
 		}
 	}
 	.dateline {
@@ -149,26 +178,6 @@ img.responsive {
 		@media screen and (min-width: 1024px) {
 			display: unset;
 		}
-	}
-}
-.logo-enter {
-	&::before {
-		height: 100vh;
-	}
-	h1 {
-		opacity: 0;
-		transform: translate3d(0, 33vh, 50px) scale(1.25);
-	}
-}
-.logo-enter-active {
-	&::before {
-		animation: reveal-bottom 250ms cubic-bezier(0.4, 0.0, 0.2, 1) 1.25s backwards;
-	}
-	h1 {
-		position: relative;
-		z-index: 2;
-		animation: phase-in 150ms cubic-bezier(0.0, 0.0, 0.2, 1) 0 backwards,
-				zoom-out-up 250ms cubic-bezier(0.0, 0.0, 0.2, 1) 1s backwards;
 	}
 }
 @keyframes zoom-out-up {

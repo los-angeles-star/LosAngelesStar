@@ -49,16 +49,6 @@ export default {
 <style lang="scss" scoped>
 $content--width: 688px;
 
-.featured-media {
-  margin-top: 2.375;
-
-  &.placeholder figure {
-    background-color: lightgray;
-    min-height: 256px;
-    aspect-ratio: 1.6180339887;
-  }
-}
-
 figure {
   max-width: $content--width;
   margin-right: auto;
@@ -79,6 +69,16 @@ figure {
     p {
       margin: 0;
     }
+  }
+}
+
+.featured-media {
+  margin-top: 2.375;
+
+  &.placeholder figure {
+    background-color: lightgray;
+    min-height: 256px;
+    aspect-ratio: 1.6180339887;
   }
 }
 
