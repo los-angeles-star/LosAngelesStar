@@ -1,5 +1,5 @@
-<template v-if="media">
   <div :id="'image-'+media.id" class="featured-media">
+<template>
     <figure itemprop="image" aria-label="media">
       <div v-if="media.description !== undefined">
         <div class="overlay"></div>
