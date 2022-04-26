@@ -1,5 +1,5 @@
-  <div :id="'image-'+media.id" class="featured-media">
 <template>
+  <div :id="'image-'+media.id" class="featured-media" v-if="isLoaded">
     <figure itemprop="image" aria-label="media">
       <div v-if="media.description !== undefined">
         <div class="overlay"></div>
@@ -8,6 +8,11 @@
       <figcaption v-html="media.caption.rendered" />
     </figure>
     <meta itemprop="thumbnailUrl" :content="media.link">
+  </div>
+  <div v-else class="featured-media placeholder" aria-busy="true">
+    <figure>
+      Loading<span>.</span><span>.</span><span>.</span>
+    </figure>
   </div>
 </template>
 
@@ -46,6 +51,12 @@ $content--width: 688px;
 
 .featured-media {
   margin-top: 2.375;
+
+  &.placeholder figure {
+    background-color: lightgray;
+    min-height: 256px;
+    aspect-ratio: 1.6180339887;
+  }
 }
 
 figure {
