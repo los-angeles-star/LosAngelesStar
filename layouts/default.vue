@@ -201,9 +201,15 @@ main strong {
 	animation: coming 1s;
 	animation-delay: .5s;
 	opacity: 0;
+	@media (prefers-reduced-motion) {
+		animation: none;
+	}
 }
 .fade-leave-active {
 	animation: going 1s;
+	@media (prefers-reduced-motion) {
+		animation: none;
+	}
 }
 @keyframes going {
 	from {
