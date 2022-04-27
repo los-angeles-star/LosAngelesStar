@@ -1,5 +1,5 @@
 <template>
-  <post :key="post.id" v-bind="post" />
+  <Post :key="post.id" v-bind="post" />
 </template>
 
 <script>
@@ -15,6 +15,9 @@ export default {
     },
     post() {
       return this.posts.find(el => el.slug === this.slug);
+    },
+    authors() {
+      return this.$store.state.authors;
     }
   },
   data() {
@@ -24,6 +27,7 @@ export default {
   },
   created() {
     this.$store.dispatch("getPosts");
+    this.$store.dispatch("getAuthors");
   },
 }
 </script>
