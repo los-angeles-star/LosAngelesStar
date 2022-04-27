@@ -29,13 +29,13 @@ export default {
 		const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
 		return {
 			htmlAttrs: {
-				...this.$nuxtI18nHead({ addSeoAttributes: true }).htmlAttrs
+				...i18nHead.htmlAttrs
 			},
 			meta: [
-				...this.$nuxtI18nHead({ addSeoAttributes: true }).meta
+				...i18nHead.meta
 			],
 			link: [
-				...this.$nuxtI18nHead({ addSeoAttributes: true }).link
+				...i18nHead.link
 			]
 		}
 	},
