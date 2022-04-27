@@ -43,10 +43,10 @@ export default {
 	data() {
 		return data
 	},
-	created() {
 	computed: mapState({
 		metadata: 'metadata'
 	}),
+	mounted() {
 		this.$store.dispatch("getMeta");
 	},
 	methods: {
