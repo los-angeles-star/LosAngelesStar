@@ -25,6 +25,20 @@ export default {
 		Header,
 		Footer
 	},
+	head() {
+		const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
+		return {
+			htmlAttrs: {
+				...this.$nuxtI18nHead({ addSeoAttributes: true }).htmlAttrs
+			},
+			meta: [
+				...this.$nuxtI18nHead({ addSeoAttributes: true }).meta
+			],
+			link: [
+				...this.$nuxtI18nHead({ addSeoAttributes: true }).link
+			]
+		}
+	},
 	data () {
 		return data
 	},

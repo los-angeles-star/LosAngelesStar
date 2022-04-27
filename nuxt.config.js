@@ -17,34 +17,28 @@ export default defineNuxtConfig({
    ** Headers
    ** Common headers are already provided by @nuxtjs/pwa preset
    */
-  head() {
-    const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
-    return {
-      htmlAttrs: {
-        dir: 'ltr',
-        ...i18nHead.htmlAttrs
-      },
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Config.appDescription'
-        },
-        ...i18nHead.meta
-      ],
-      link: [
-        {
-          hid: 'apple-touch-icon',
-          rel: 'apple-touch-icon',
-          sizes: '180x180',
-          href: '/apple-touch-icon.png'
-        },
-        ...i18nHead.link
-      ],
-      titleTemplate: titleChunk => {
-        // If undefined or blank then we don't need the hyphen
-        return titleChunk ? `${titleChunk} - Los Angeles Star` : "Los Angeles Star";
-      },
+  head: {
+    htmlAttrs: {
+      dir: 'ltr'
+    },
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: Config.appDescription || ''
+      }
+    ],
+    link: [
+      {
+        hid: 'apple-touch-icon',
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png'
+      }
+    ],
+    titleTemplate: titleChunk => {
+      // If undefined or blank then we don't need the hyphen
+      return titleChunk ? `${titleChunk} - Los Angeles Star` : "Los Angeles Star";
     }
   },
   css: ['~/node_modules/sanitize.css'],
