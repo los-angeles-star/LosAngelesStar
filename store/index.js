@@ -1,6 +1,4 @@
-import Config from '~/assets/config'
-
-const siteURL = Config.wpDomain
+import { Config } from '~/assets/config'
 
 export const state = () => ({
   metadata: [],
@@ -37,14 +35,8 @@ export const actions = {
 
     try {
       let metadata = await fetch(
-        `${siteURL}/wp-json/`
+        `${Config.wpDomain}`
       ).then(res => res.json())
-
-      metadata = metadata
-        .map(({ name, description }) => ({
-          name,
-          description
-        }))
 
       commit("updateMetadata", metadata)
     } catch (err) {
@@ -56,7 +48,7 @@ export const actions = {
 
     try {
       let posts = await fetch(
-        `${siteURL}/wp-json/wp/v2/posts?page=1&per_page=20&_embed=1`
+        `${Config.wpDomain}${Config.api.posts}?page=1&per_page=20&_embed=1`
       ).then(res => res.json())
 
       posts = posts
@@ -86,7 +78,7 @@ export const actions = {
 
     try {
       let currentAuthor = await fetch(
-        `${siteURL}/wp-json/wp/v2/users/${data.authorId}`
+        `${Config.wpDomain}${Config.api.users}${data.authorId}`
       ).then(res => res.json())
 
       commit("updateCurrentAuthor", currentAuthor)
@@ -99,7 +91,7 @@ export const actions = {
 
     try {
       let postMedia = await fetch(
-        `${siteURL}/wp-json/wp/v2/media/${data.featuredMedia}`
+        `${Config.wpDomain}${Config.api.media}${data.featuredMedia}`
       ).then(res => res.json())
 
       commit("updatePostMedia", postMedia)
@@ -117,7 +109,7 @@ export const actions = {
 
     try {
       let tags = await fetch(
-        `${siteURL}/wp-json/wp/v2/tags?page=1&per_page=40&include=${allTags}`
+        `${Config.wpDomain}${Config.api.tags}?page=1&per_page=40&include=${allTags}`
       ).then(res => res.json())
 
       tags = tags.map(({ id, name }) => ({
