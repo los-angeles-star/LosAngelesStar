@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Header from '../layouts/Header'
 import Footer from '../layouts/Footer'
 
@@ -39,15 +40,13 @@ export default {
 			]
 		}
 	},
-	data () {
+	data() {
 		return data
 	},
-	computed: {
-		metadata() {
-			return this.$store.metadata;
-		},
-	},
 	created() {
+	computed: mapState({
+		metadata: 'metadata'
+	}),
 		this.$store.dispatch("getMeta");
 	},
 	methods: {
