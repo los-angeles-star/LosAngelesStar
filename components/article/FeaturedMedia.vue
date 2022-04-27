@@ -5,7 +5,7 @@
         <div class="overlay"></div>
         <div v-html="media.description.rendered"></div>
       </div>
-      <figcaption v-html="media.caption.rendered" />
+      <figcaption v-if="media.caption" v-html="media.caption.rendered" />
     </figure>
     <meta itemprop="thumbnailUrl" :content="media.link">
   </div>
