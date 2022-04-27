@@ -41,6 +41,10 @@ export default defineNuxtConfig({
 			return titleChunk ? `${titleChunk} - Los Angeles Star` : "Los Angeles Star";
 		}
 	},
+	target: 'static',
+	generate: {
+		fallback: true
+	},
 	css: ['~/node_modules/sanitize.css'],
 	components: true,
 	buildModules: [
