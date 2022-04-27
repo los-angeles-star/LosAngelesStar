@@ -62,15 +62,21 @@ export default {
 </script>
 
 <style lang="scss">
+@use 'sass:color';
+
+$color-cyan: #00b7eb;
+$color-magenta: #cc006b;
+$color-yellow: #fff10c;
+
 :root {
 		--color__brand: #f7f7f7;
 		--color__text: #2f2f2f;
 		--color__text--dark: #121212;
 		--color__text--light: #717171;
 		--color__border: var(--color__text);
-		--color__process-cyan: #00b7eb;
-		--color__process-magenta: #cc006b;
-		--color__process-yellow: #fff10c;
+		--color__process-cyan: #{$color-cyan};
+		--color__process-magenta: #{$color-magenta};
+		--color__process-yellow: #{$color-yellow};
 		--color__process-black: #000;
 		--color__link: var(--color__process-cyan);
 		--color__link--visited: #551a8b;
@@ -222,10 +228,10 @@ main strong {
 		height: calc(100% - 4vw);
 	}
 	&::before {
-		outline: 2vw solid transparentize($cyan, 0.75);
+		outline: 2vw solid color.adjust($color-cyan, $alpha: -0.75);
 	}
 	&::after {
-		outline: 2vw solid transparentize($yellow, 0.75);
+		outline: 2vw solid color.adjust($color-yellow, $alpha: -0.75);
 		position: absolute;
 		top: -100%;
 		left: -100%;
