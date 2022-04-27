@@ -1,5 +1,5 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
-import Config from "./assets/config"
+import { API_Endpoint, Config } from "./assets/config"
 import axios from "axios"
 
 let dynamicRoutes = () => {
