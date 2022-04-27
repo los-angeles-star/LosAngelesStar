@@ -16,9 +16,9 @@ export const Config = {
   // loadDbName: "[starter_wp]", // db name if needed
   api: {
     homePage: "/wp/v2/pages/2", // the [page_id] from WordPress
-    posts: "/wp-json/wp/v2/posts",
+    posts: "/wp/v2/posts",
     users: "/wp/v2/users/",
     media: "/wp/v2/media/",
-    tags: "/wp-json/wp/v2/tags"
+    tags: "/wp/v2/tags"
   }
 };
