@@ -115,6 +115,9 @@ img.responsive {
 			@media screen and (min-width: 12in) {
 				width: auto;
 			}
+			@media (prefers-color-scheme: dark) {
+				filter: invert(1);
+			}
 		}
 		&.loading {
 			&::before {
