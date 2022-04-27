@@ -1,6 +1,6 @@
 <template>
 	<div slot-scope="{ header }" class="container">
-		<meta itemprop="name" content="$store.state.metadata.description">
+		<meta itemprop="name" :content="$store.state.metadata.description">
 		<transition name="logo" appear :duration="1500">
 			<div class="flag" :class="[isLoading ? 'logo-enter' : 'loaded', '']" v-once>
 	  		<h1>
