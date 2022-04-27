@@ -91,6 +91,7 @@ export default defineNuxtConfig({
 				es: '/sobre'
 			}
 		},
+		baseUrl: Config.url || '',
 		vueI18n: {
 			fallbackLocale: 'en',
 			dateTimeFormats: {

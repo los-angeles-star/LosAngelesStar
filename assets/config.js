@@ -12,7 +12,7 @@ export const Config = {
   // these are the rest api endpoints and your wordpress url
   client: `https://${API_Endpoint}`,
   wpDomain: `https://${API_Endpoint}/wp-json`,
-  url: "https://losangelesstar.netlify.com/", // your website url
+  url: "https://losangelesstar.netlify.com", // your website url
   // loadDbName: "[starter_wp]", // db name if needed
   api: {
     homePage: "/wp/v2/pages/2", // the [page_id] from WordPress
