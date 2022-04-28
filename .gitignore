@@ -28,6 +28,7 @@ dist
 .output
 .gen
 nuxt.d.ts
+sw.*
 
 # Junit reports
 reports
