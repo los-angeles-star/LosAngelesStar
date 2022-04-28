@@ -5,7 +5,7 @@
 			<div class="flag" :class="[isLoading ? 'logo-enter' : 'loaded', '']" v-once>
 	  		<h1>
 	  			<NuxtLink :to="localePath({ name: 'index' })" itemprop="url">
-						<img class="logo responsive" src="@/assets/los-angeles-star-logo.svg" :alt="$store.state.metadata.name" itemprop="logo">
+						<img class="logo responsive" src="@/assets/los-angeles-star-logo.svg" :alt="$store.state.metadata.name || ''" itemprop="logo">
 					</NuxtLink>
 	  		</h1>
 	  	</div>
