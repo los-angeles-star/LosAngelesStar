@@ -56,6 +56,7 @@ article {
 }
 :link {
 	color: cmyk(100%, 100%, 0, 0); // blue
+	color: var(--link);
 	&:visited {
 		color: cmyk(0, 100%, 0, 50%); // purple
 	}
