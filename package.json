@@ -4,9 +4,12 @@
     "dev": "nuxi dev",
     "build": "nuxi build",
     "generate": "nuxi generate",
-    "start": "nuxi preview"
+    "start": "nuxi preview",
+    "lhci:mobile": "lhci autorun",
+    "lhci:desktop": "lhci autorun --collect.settings.preset=desktop"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.9.0",
     "@nuxt/bridge": "npm:@nuxt/bridge-edge",
     "@nuxtjs/google-fonts": "^1.3.0",
     "@nuxtjs/pwa": "^3.3.5",

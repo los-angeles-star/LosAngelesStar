@@ -28,6 +28,8 @@ dist
 .output
 .gen
 nuxt.d.ts
+sw.*
+.lighthouseci
 
 # Junit reports
 reports
