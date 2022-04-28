@@ -1,6 +1,6 @@
 <template>
   <div class="columns">
-      <Article  v-for="post in $store.state.posts" :key="post.id" :post="post" />
+      <Article v-for="post in $store.state.posts" :key="post.id" :post="post" />
   </div>
   <!-- <Pager :info="$page.allWordPressPost.pageInfo" linkClass="pager-link"/> -->
 </template>
