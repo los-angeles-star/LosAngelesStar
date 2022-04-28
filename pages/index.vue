@@ -37,9 +37,9 @@ article {
 	break-inside: auto;
 	&:empty {
     height: 360px;
-    background-image: linear-gradient(#2f2f2f 40px,transparent 0),linear-gradient(#2f2f2f 40px,transparent 0),linear-gradient(#2f2f2f 40px,transparent 0),linear-gradient(#2f2f2f 40px,transparent 0),linear-gradient(#2f2f2f 40px,transparent 0),linear-gradient(#2f2f2f 40px,transparent 0),linear-gradient(#2f2f2f 40px,transparent 0),linear-gradient(#2f2f2f 40px,transparent 0),linear-gradient(#2f2f2f 40px,transparent 0),linear-gradient(#f7f7f7 100%,transparent 0);
     background-size: 204px 20px,204px 20px, 204px 14px, 204px 16px,204px 16px,204px 16px,204px 16px,204px 16px,204px 16px,100% 100%;
     background-position: 0px 0.5em,0 2.5625em,0 5.875em,0 9em,0 10.5em,0 12em,0 13.5em,0 15em,0 16.5em,0 0;
+		background-image: linear-gradient(#717272 40px,transparent 0),linear-gradient(#717272 40px,transparent 0),linear-gradient(#717272 40px,transparent 0),linear-gradient(#717272 40px,transparent 0),linear-gradient(#717272 40px,transparent 0),linear-gradient(#717272 40px,transparent 0),linear-gradient(#717272 40px,transparent 0),linear-gradient(#717272 40px,transparent 0),linear-gradient(#717272 40px,transparent 0),linear-gradient(#f7f7f7 100%,transparent 0);
 	}
 }
 [aria-label="Pagination Navigation"] {
