@@ -13,7 +13,7 @@
 		<section id="masthead-bar">
 			<div class="ear left"></div>
 			<div class="ear right">
-				<WeatherEar  :attention="attention" :key="componentKey" />
+				<WeatherEar :attention="attention" :key="componentKey" />
 				<StockEar :attention="attention" />
 			</div>
 		</section>
