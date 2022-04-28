@@ -55,7 +55,12 @@ export default defineNuxtConfig({
 		'@nuxtjs/i18n',
 		'@nuxtjs/stylelint-module'
 	],
-	pwa: {},
+	// ssr: false,
+	pwa: {
+		meta: {
+			theme_color: Config.appThemeColor
+		}
+	},
 	googleFonts: {
 		display: 'swap',
 		useStylesheet: true,
