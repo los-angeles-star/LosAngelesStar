@@ -57,6 +57,11 @@ export default defineNuxtConfig({
 	],
 	// ssr: false,
 	pwa: {
+		manifest: {
+			name: Config.appTitle,
+			short_name: Config.appTitleShort,
+			background_color: Config.appBgColor
+		},
 		meta: {
 			theme_color: Config.appThemeColor
 		}
