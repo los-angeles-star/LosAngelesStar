@@ -36,9 +36,10 @@ import StockEar from '~/components/StockEar.vue'
 
 export default {
 	name: 'Header',
-	props: ["isLoading", "attention"],
+	props: ["attention"],
 	data () {
 		return {
+			isLoading: true,
 			componentKey: 0,
 		}
 	},
@@ -53,6 +54,9 @@ export default {
 			}
 		}
 	},
+	mounted() {
+		this.isLoading = false;
+	}
 }
 </script>
 
