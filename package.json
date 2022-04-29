@@ -1,5 +1,10 @@
 {
   "name": "los-angeles-star",
+  "author": {
+    "name": "Alexander Bell",
+    "email": "contact@alexanderbell.info",
+    "url": "https://alexanderbell.info"
+  },
   "private": true,
   "scripts": {
     "dev": "nuxi dev",
