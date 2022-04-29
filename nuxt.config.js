@@ -31,7 +31,12 @@ export default defineNuxtConfig({
 				rel: 'apple-touch-icon',
 				sizes: '180x180',
 				href: '/apple-touch-icon.png'
-			}
+			},
+			{
+				rel: 'preload',
+				as: 'image',
+				href: '/_nuxt/assets/los-angeles-star-logo.svg',
+			},
 		],
 		titleTemplate: titleChunk => {
 			// If undefined or blank then we don't need the hyphen
