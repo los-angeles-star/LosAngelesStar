@@ -78,11 +78,14 @@ export default defineNuxtConfig({
 			theme_color: Config.appThemeColor
 		}
 	},
+
+	// Google Fonts module configuration: https://google-fonts.nuxtjs.org/
 	googleFonts: {
 		display: 'swap',
 		useStylesheet: true,
 		inject: true,
 		download: true,
+		subsets: ['latin', 'latin-ext'],
 		families: {
 			'Old+Standard+TT': true,
 		}
