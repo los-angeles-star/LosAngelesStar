@@ -34,6 +34,14 @@ export default defineNuxtConfig({
 	generate: {
 		fallback: true
 	},
+	render: {
+    bundleRenderer: {
+			shouldPreload: (file, type) => {
+			  if (type === 'image') return /.svg/.test(file)
+			  return ['script', 'style', 'image'].includes(type)
+			}
+		}
+	},
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: ['~/node_modules/sanitize.css'],
