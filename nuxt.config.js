@@ -61,7 +61,9 @@ export default defineNuxtConfig({
 		'@nuxtjs/axios',
 		'@nuxtjs/style-resources',
 		'@nuxtjs/i18n',
-		'@nuxtjs/stylelint-module'
+		'@nuxtjs/stylelint-module',
+		// PurgeCSS: https://purgecss.com/guides/nuxt.html
+		'nuxt-purgecss',
 	],
 	// ssr: false,
 
