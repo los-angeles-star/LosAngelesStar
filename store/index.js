@@ -41,6 +41,11 @@ export const actions = {
       commit("updateMetadata", metadata)
     } catch (err) {
       console.log(err)
+
+      commit("updateMetadata", {
+        name: `${Config.appTitle}`,
+        description: `${Config.appDescription}`
+      })
     }
   },
   async getPosts({ state, commit, dispatch }) {

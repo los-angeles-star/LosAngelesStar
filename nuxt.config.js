@@ -25,19 +25,6 @@ export default defineNuxtConfig({
 				content: Config.appDescription || ''
 			}
 		],
-		link: [
-			{
-				hid: 'apple-touch-icon',
-				rel: 'apple-touch-icon',
-				sizes: '180x180',
-				href: '/apple-touch-icon.png'
-			},
-			{
-				rel: 'preload',
-				as: 'image',
-				href: '/_nuxt/assets/los-angeles-star-logo.svg',
-			},
-		],
 		titleTemplate: titleChunk => {
 			// If undefined or blank then we don't need the hyphen
 			return titleChunk ? `${titleChunk} - Los Angeles Star` : "Los Angeles Star";
@@ -46,6 +33,14 @@ export default defineNuxtConfig({
 	// target: 'static',
 	generate: {
 		fallback: true
+	},
+	render: {
+    bundleRenderer: {
+			shouldPreload: (file, type) => {
+			  if (type === 'image') return /.svg/.test(file)
+			  return ['script', 'style', 'image'].includes(type)
+			}
+		}
 	},
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
