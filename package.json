@@ -1,4 +1,10 @@
 {
+  "name": "los-angeles-star",
+  "author": {
+    "name": "Alexander Bell",
+    "email": "contact@alexanderbell.info",
+    "url": "https://alexanderbell.info"
+  },
   "private": true,
   "scripts": {
     "dev": "nuxi dev",
@@ -16,6 +22,7 @@
     "@nuxtjs/style-resources": "^1.2.1",
     "@nuxtjs/stylelint-module": "^4.1.0",
     "nuxt-edge": "latest",
+    "nuxt-purgecss": "^1.0.0",
     "postcss": "8",
     "postcss-html": "^1.4.1",
     "sass": "^1.50.0",

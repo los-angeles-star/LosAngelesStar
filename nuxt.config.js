@@ -13,10 +13,7 @@ let dynamicRoutes = () => {
 }
 
 export default defineNuxtConfig({
-	/*
-	 ** Headers
-	 ** Common headers are already provided by @nuxtjs/pwa preset
-	 */
+	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
 		htmlAttrs: {
 			dir: 'ltr'
@@ -34,7 +31,12 @@ export default defineNuxtConfig({
 				rel: 'apple-touch-icon',
 				sizes: '180x180',
 				href: '/apple-touch-icon.png'
-			}
+			},
+			{
+				rel: 'preload',
+				as: 'image',
+				href: '/_nuxt/assets/los-angeles-star-logo.svg',
+			},
 		],
 		titleTemplate: titleChunk => {
 			// If undefined or blank then we don't need the hyphen
@@ -45,37 +47,59 @@ export default defineNuxtConfig({
 	generate: {
 		fallback: true
 	},
+
+	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: ['~/node_modules/sanitize.css'],
+
+	// Auto-import components: https://go.nuxtjs.dev/config-components
 	components: true,
+
+	// Modules: https://go.nuxtjs.dev/config-modules
 	buildModules: [
 		'@nuxtjs/pwa',
 		'@nuxtjs/google-fonts',
 		'@nuxtjs/axios',
 		'@nuxtjs/style-resources',
 		'@nuxtjs/i18n',
-		'@nuxtjs/stylelint-module'
+		'@nuxtjs/stylelint-module',
+		// PurgeCSS: https://purgecss.com/guides/nuxt.html
+		'nuxt-purgecss',
 	],
 	// ssr: false,
+
+	// PWA module configuration: https://pwa.nuxtjs.org/
 	pwa: {
+		manifest: {
+			name: Config.appTitle,
+			short_name: Config.appTitleShort,
+			background_color: Config.appBgColor
+		},
 		meta: {
 			theme_color: Config.appThemeColor
 		}
 	},
+
+	// Google Fonts module configuration: https://google-fonts.nuxtjs.org/
 	googleFonts: {
 		display: 'swap',
 		useStylesheet: true,
 		inject: true,
 		download: true,
+		subsets: ['latin', 'latin-ext'],
 		families: {
 			'Old+Standard+TT': true,
 		}
 	},
+
+	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {
 		baseURL: 'http://localhost:3000',
 	},
+
+	// Plug-ins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [
 		"~/plugins/posts.server.js",
-		"~/plugins/dateFormat.js"
+		// "~/plugins/dateFormat.js"
 	],
 	generate: {
 		routes: dynamicRoutes
