@@ -76,6 +76,7 @@ img.responsive {
 }
 .logo-enter-active {
 	&::before {
+		height: 100vh;
 		animation: reveal-bottom 250ms cubic-bezier(0.4, 0.0, 0.2, 1) 1.25s backwards;
 		@media (prefers-reduced-motion) {
 			animation: fade-out 250ms cubic-bezier(0.4, 0.0, 0.2, 1) 1.25s backwards;
@@ -104,6 +105,7 @@ img.responsive {
 			left: 0;
 			right: 0;
 			z-index: 1;
+			transform-origin: top center;
 		}
 		h1 {
 			margin-top: 0.65625in;
@@ -216,10 +218,10 @@ img.responsive {
 }
 @keyframes reveal-bottom {
 	0% {
-		height: 100vh;
+		transform: scale3d(1, 1, 1);
 	}
 	100% {
-		height: 0vh;
+		transform: scale3d(1, 0, 0.5);
 	}
 }
 </style>
