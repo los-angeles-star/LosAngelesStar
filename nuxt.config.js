@@ -60,7 +60,9 @@ export default defineNuxtConfig({
 		// PurgeCSS: https://purgecss.com/guides/nuxt.html
 		'nuxt-purgecss',
 	],
-	// ssr: false,
+
+	// Server-Side Rendering: https://go.nuxtjs.dev/config-ssr
+	ssr: true,
 
 	// PWA module configuration: https://pwa.nuxtjs.org/
 	pwa: {
