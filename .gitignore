@@ -28,6 +28,7 @@ dist
 .output
 .gen
 nuxt.d.ts
+static/sw.*
 sw.*
 .lighthouseci
 

@@ -117,6 +117,8 @@ img.responsive {
 			text-decoration: none;
 		}
 		.logo {
+			display: block;
+			margin: 0 auto;
 			width: 73.81643%;
 			@media screen and (min-width: 12in) {
 				width: auto;
