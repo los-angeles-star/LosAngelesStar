@@ -8,6 +8,7 @@
 <script>
 import Post from '~/templates/WordPressPost.vue'
 import Article from '~/templates/WordPressPostExcerpt.vue'
+import cacheControl from '~/plugins/cacheControl.js'
 
 export default {
 	name: 'Home',
@@ -21,6 +22,10 @@ export default {
 			class: ['blog']
 		}
 	},
+	middleware: cacheControl({
+		'max-age': 60,
+		'stale-when-revalidate': 5
+	}),
 	computed: {
 		posts() {
 			return this.$store.state.posts;

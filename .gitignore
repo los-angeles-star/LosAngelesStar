@@ -20,6 +20,8 @@ distributions/*/LICENSE
 !.nuxtignore
 !.nuxtrc
 .cache
+.env
+.env.*
 
 # Generated folders
 dist
