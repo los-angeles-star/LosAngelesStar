@@ -7,6 +7,7 @@ $color-cyan-alpha: color.adjust($color-cyan, $alpha: -0.75);
 $color-yellow-alpha: color.adjust($color-yellow, $alpha: -0.75);
 
 :root {
+	color-scheme: light dark;
 	--color__brand: #f9f7f5;
 	--color__text: #2e2f31;
 	--color__text--dark: #121212;
