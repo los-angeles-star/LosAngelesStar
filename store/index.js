@@ -5,7 +5,8 @@ export const state = () => ({
   posts: [],
   currentAuthor: {},
   postMedia: {},
-  tags: []
+  tags: [],
+  currentPage: {}
 })
 
 export const getters = {};
@@ -26,6 +27,15 @@ export const mutations = {
   },
   updateTags: (state, tags) => {
     state.tags = tags
+  },
+  updateCurrentPage: (state, currentPage) => {
+    state.currentPage = currentPage
+
+    console.log(
+      "%cAction completed",
+      "color: white; background-color: green; font-weight: bold;"
+    );
+    console.timeLog();
   }
 }
 
@@ -123,6 +133,19 @@ export const actions = {
       }))
 
       commit("updateTags", tags)
+    } catch (err) {
+      console.log(err)
+    }
+  },
+  async getCurrentPage({ state, commit }, data) {
+    if (state.currentPage.length) return
+console.log(data.slug)
+    try {
+      let currentPage = await fetch(
+        `${Config.wpDomain}${Config.api.pages}?slug=${data.slug}`
+      ).then(res => res.json())
+console.log(currentPage)
+      commit("updateCurrentPage", currentPage[0])
     } catch (err) {
       console.log(err)
     }
