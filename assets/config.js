@@ -19,6 +19,7 @@ export const Config = {
     posts: "/wp/v2/posts",
     users: "/wp/v2/users/",
     media: "/wp/v2/media/",
-    tags: "/wp/v2/tags"
+    tags: "/wp/v2/tags",
+    pages: "/wp/v2/pages"
   }
 };

@@ -1,0 +1,39 @@
+@use "sass:color";
+
+$color-cyan: #00b7eb;
+$color-magenta: #cc006b;
+$color-yellow: #fff10c;
+$color-cyan-alpha: color.adjust($color-cyan, $alpha: -0.75);
+$color-yellow-alpha: color.adjust($color-yellow, $alpha: -0.75);
+
+:root {
+	color-scheme: light dark;
+	--color__brand: #f9f7f5;
+	--color__text: #2e2f31;
+	--color__text--dark: #121212;
+	--color__text--light: #717171;
+	--color__border: var(--color__text);
+	--color__process-cyan: #{$color-cyan};
+	--color__process-magenta: #{$color-magenta};
+	--color__process-yellow: #{$color-yellow};
+	--color__process-black: #000;
+	--color__link: var(--color__process-cyan);
+	--color__link--visited: #551a8b;
+	--color__link--active: var(--color__process-magenta);
+	--color__link--active-visited: #88aaff;
+	--color__info--positive: #3a7f36;
+	--color__info--negative: rgb(166, 27, 30);
+	--color__process-cyan--alpha: #{$color-cyan-alpha};
+	--color__process-yellow--alpha: #{$color-yellow-alpha};
+
+	@media (prefers-color-scheme: dark) {
+		--color__brand: #222;
+		--color__text: #f7f7f7;
+		--color__text--dark: color.invert(var(--color__text--dark));
+		--color__text--light: color.invert(var(--color__text--light));
+		--color__process-cyan: rgb(0, 186, 237);
+		--color__process-magenta: rgb(255, 131, 195);
+		--color__info--positive: #27c71f;
+		--color__info--negative: #ff8a8c;
+	}
+}
