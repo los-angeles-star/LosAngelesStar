@@ -139,12 +139,12 @@ export const actions = {
   },
   async getCurrentPage({ state, commit }, data) {
     if (state.currentPage.length) return
-console.log(data.slug)
+
     try {
       let currentPage = await fetch(
         `${Config.wpDomain}${Config.api.pages}?slug=${data.slug}`
       ).then(res => res.json())
-console.log(currentPage)
+
       commit("updateCurrentPage", currentPage[0])
     } catch (err) {
       console.log(err)
