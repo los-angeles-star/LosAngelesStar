@@ -1,7 +1,7 @@
 import { Config } from '~/assets/config'
 
 export const state = () => ({
-  metadata: [],
+  metadata: {},
   posts: [],
   currentAuthor: {},
   postMedia: {},
