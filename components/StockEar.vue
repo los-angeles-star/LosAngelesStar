@@ -1,12 +1,12 @@
 <template>
   <div class="stocks">
     <transition-group name="fade" tag="dl">
-      <div class="market-index" :class="index == currentIndex ? '' : 'visually-hidden'" v-for="(item, index) in markets" :key="item.shortName" :data-index="index">
+      <div class="market-index" :class="index == currentIndex ? '' : 'visually-hidden'" v-for="(item, index) in marketSummary" :key="item.shortName" :data-index="index">
         <dt>
           <span class="name">{{ item.shortName }}</span>
         </dt>
         <dd :class="[ 'change', item.regularMarketChangePercent.raw >= 0 ? 'positive' : 'negative' ]">
-          <span>{{ item.regularMarketChangePercent.raw > 0 ? '+'+item.regularMarketChangePercent.raw : item.regularMarketChangePercent.raw }}%</span>
+          <span>{{ item.regularMarketChangePercent.raw > 0 ? '+'+item.regularMarketChangePercent.fmt : item.regularMarketChangePercent.fmt }}</span>
           <svg width="5" height="9">
             <title>{{ item.shortName }}</title>
             <path v-if="item.regularMarketChangePercent.raw > 0" fill="currentColor" d="M2 4.092h1V9H2zm2.863 0L2.5 0 .137 4.092h4.726z"/>
@@ -19,40 +19,13 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { mapState } from 'vuex'
+
 const data = {
   currentIndex: 0,
   marketInterval: null,
-  markets: {
-    0: {
-      shortName: 'S&P 500',
-      regularMarketTime: {
-        raw: 1637791540
-      },
-      regularMarketChangePercent: {
-        raw: 0.72
-      }
-    },
-    1: {
-      shortName: 'Nasdaq',
-      regularMarketTime: {
-        raw: 1637792159
-      },
-      regularMarketChangePercent: {
-        raw: -1.0
-      }
-    },
-    2: {
-      shortName: 'Dow',
-      regularMarketTime: {
-        raw: 1637791540
-      },
-      regularMarketChangePercent: {
-        raw: -1.26
-      }
-    }
-  }
 }
+
 export default {
 	name: 'stock-ticker',
 	data () {
@@ -61,11 +34,13 @@ export default {
   props: {
     attention: Boolean
   },
+  created() {
+    this.$store.dispatch('stocks/getMarketSummary')
+  },
   mounted() {
     this.marketInterval = setInterval( () => {
       2 > this.currentIndex ? this.currentIndex += 1 : this.currentIndex = 0;
     }, 5000);
-    this.getMarkets();
   },
   watch: {
     attention: function (val, oldVal) {
@@ -78,17 +53,8 @@ export default {
       }
     }
   },
-  methods: {
-    async getMarkets() {
-      try {
-        const results = await axios.get(
-          'https://query1.finance.yahoo.com/v6/finance/quote/marketSummary?lang=en&region=US'
-        )
-        console.log(this.results)
-      } catch (error) {
-        console.log(error)
-      }
-    }
+  computed: {
+    ...mapState('stocks', ['marketSummary']),
   }
 }
 </script>
