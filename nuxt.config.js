@@ -54,6 +54,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/pwa',
 		'@nuxtjs/google-fonts',
 		'@nuxtjs/axios',
+		'@nuxtjs/proxy',
 		'@nuxtjs/style-resources',
 		'@nuxtjs/i18n',
 		'@nuxtjs/stylelint-module',
@@ -92,6 +93,16 @@ export default defineNuxtConfig({
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {
 		baseURL: 'http://localhost:3000',
+		proxy: true
+	},
+
+	// Proxy module
+	proxy: {
+	  '/api/': {
+			target: 'https://query1.finance.yahoo.com/',
+			pathRewrite: {'^/api/': ''},
+			changeOrigin: true
+		}
 	},
 
 	// Plug-ins to run before rendering page: https://go.nuxtjs.dev/config-plugins
