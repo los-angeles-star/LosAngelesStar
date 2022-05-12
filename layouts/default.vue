@@ -167,6 +167,9 @@ main strong {
 	display: inline-block;
 	margin-left: 20px;
 	line-height: 34px;
+	&:first-child {
+		margin-left: 0;
+	}
 }
 .article {
 	max-width: 600px;
