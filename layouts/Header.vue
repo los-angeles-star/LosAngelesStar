@@ -152,8 +152,10 @@ img.responsive {
 		.date {
 			order: 1;
 			flex: 1 0 auto;
+			font-size: 3.93333vw;
 			@media screen and (min-width: 600px) {
 				order: 0;
+				font-size: 1em;
 			}
 		}
 		&::after {
