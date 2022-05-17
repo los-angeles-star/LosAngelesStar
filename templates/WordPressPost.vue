@@ -17,6 +17,7 @@
 
 <script>
 export default {
+	name: 'wordpress-post',
 	props: {
 		id: {
 			type: Number,
