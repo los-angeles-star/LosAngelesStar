@@ -6,6 +6,7 @@
 import Post from '~/templates/WordPressPost.vue'
 
 export default {
+  name: 'slug',
   components: {
     Post
   },
