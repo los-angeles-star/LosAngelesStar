@@ -172,6 +172,7 @@ export default defineNuxtConfig({
 	// Google Analytics: https://go.nuxtjs.dev/google-analytics
 	gtm: {
     id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+		enabled: process.env.NODE_ENV === 'production' ? true : false,
 		pageTracking: true,
 		autoTracking: {
       screenview: true
