@@ -4,7 +4,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import Post from '~/templates/WordPressPost.vue'
+import Post from '~/components/WordPressPost.vue'
 
 export default {
   name: 'slug',

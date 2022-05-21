@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Post from '~/templates/WordPressPost.vue'
-import Article from '~/templates/WordPressPostExcerpt.vue'
+import Post from '~/components/WordPressPost.vue'
+import Article from '~/components/WordPressPostExcerpt.vue'
 import cacheControl from '~/plugins/cacheControl.js'
 
 export default {

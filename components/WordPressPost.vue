@@ -68,6 +68,19 @@ blockquote {
 .h-entry {
 	margin-top: 3.8125em;
 
+	main {
+		& > * {
+			max-width: $content--width;
+			margin-left: calc((100% - $content--width) / 2);
+		}
+
+		& > p,
+		& > ul {
+			font-size: 1.25em;
+			line-height: 1.6;
+		}
+	}
+
 	h1 {
 		font-size: 2.5em;
 		line-height: 1.2;
@@ -85,19 +98,6 @@ blockquote {
 
 		p {
 			margin: 0;
-		}
-	}
-
-	main {
-		& > * {
-			max-width: $content--width;
-			margin-left: calc((100% - $content--width) / 2);
-		}
-
-		& > p,
-		& > ul {
-			font-size: 1.25em;
-			line-height: 1.6;
 		}
 	}
 }
