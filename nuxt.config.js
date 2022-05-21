@@ -77,6 +77,8 @@ export default defineNuxtConfig({
 			theme_color: Config.appThemeColor
 		}
 	},
+	// 	}
+	// },
 
 	// Google Fonts module configuration: https://google-fonts.nuxtjs.org/
 	googleFonts: {
@@ -169,6 +171,7 @@ export default defineNuxtConfig({
 
 	// Google Analytics: https://go.nuxtjs.dev/google-analytics
 	googleAnalytics: {
+	gtm: {
     id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
 		autoTracking: {
       screenview: true
