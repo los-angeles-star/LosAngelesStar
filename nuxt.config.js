@@ -58,7 +58,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/style-resources',
 		'@nuxtjs/i18n',
 		'@nuxtjs/stylelint-module',
-		'@nuxtjs/google-analytics',
+		'@nuxtjs/gtm',
 		// PurgeCSS: https://purgecss.com/guides/nuxt.html
 		'nuxt-purgecss',
 	],
@@ -170,16 +170,16 @@ export default defineNuxtConfig({
 	},
 
 	// Google Analytics: https://go.nuxtjs.dev/google-analytics
-	googleAnalytics: {
 	gtm: {
     id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+		pageTracking: true,
 		autoTracking: {
       screenview: true
     }
   },
   publicRuntimeConfig: {
 		baseURL: process.env.BASE_URL || 'https://localhost:3000',
-    googleAnalytics: {
+    gtm: {
       id: process.env.GOOGLE_ANALYTICS_ID
     }
   }
