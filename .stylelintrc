@@ -1,8 +1,8 @@
 {
-  "plugins": ["stylelint-a11y"],
+  "plugins": ["@double-great/stylelint-a11y"],
   "extends": [
     "stylelint-config-recommended-scss",
     "stylelint-config-recommended-vue/scss",
-    "stylelint-a11y/recommended"
+    "@double-great/stylelint-a11y/recommended"
   ]
 }
