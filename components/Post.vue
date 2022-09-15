@@ -18,3 +18,11 @@ export default {
   }
 }
 </script>
+
+<style type="scss">
+.h-entry main > .margin-right {
+  float: right;
+  max-width: calc(((100% - 688px) / 2) - 16px);
+  margin-left: 0;
+}
+</style>
