@@ -1,0 +1,163 @@
+:root {
+  --font-size-sm: clamp(13px, 0.14498vw + 12.22007px, 15px);
+  --font-size-base: clamp(16px, 0.26316vw + 14.94737px, 20px);
+  --font-size-md: clamp(21px, 0.43816vw + 18.24737px, 26.66px);
+  --font-size-lg: clamp(26px, 0.69327vw + 22.2269px, 35.53778px);
+  --font-size-xl: clamp(32px, 1.06065vw + 27.00741px, 47.37186px);
+  --font-size-xxl: clamp(42px, 1.58449vw + 32.72456px, 63.14669px);
+  --font-size-xxxl: clamp(51px, 2.32542vw + 39.52644px, 84.17454px);
+
+/**
+* Grid Settings
+*/
+
+  /* General */
+  --g-z_index: 2147483647;
+
+  /* Color (HSL) */
+  --g-color: 310, 100%, 68%;
+  --g-opacity-baseline: 0.1;
+  --g-opacity-line: 0.2;
+  --g-opacity-column: 0;
+  --g-opacity-gutter: 0.02;
+
+  /* Baseline */
+  --g-baseline-height: 16px;
+  --g-baseline-start: 11px;
+
+  /* Column */
+  --g-column-count: 6;
+  --g-offset: 16px;
+  --g-gutter: 8px;
+
+  /* Media Query String */
+  --g-media_query: 'Base';
+
+  /**
+  * 'Mixins' — You probably don't need to edit anything here
+  */
+
+    /* Colors */
+    --g-color-line: hsla(var(--g-color), var(--g-opacity-line));
+    --g-color-column: hsla(var(--g-color), var(--g-opacity-column));
+    --g-color-gutter: hsla(var(--g-color), var(--g-opacity-gutter));
+    --g-color-baseline: hsla(var(--g-color), var(--g-opacity-baseline));
+
+    /* Gradient Helpers */
+    --line-thickness: 1px;
+    --column-start: 0;
+    --column-start-line: var(--line-thickness);
+    --column-end: calc((100% / var(--g-column-count)) - var(--g-gutter) - var(--line-thickness));
+    --column-end-line: calc((100% / var(--g-column-count)) - var(--g-gutter));
+    --gutter-end: calc(100% / var(--g-column-count));
+
+    /* Gradients */
+    --g-gradient-column:
+      repeating-linear-gradient(
+        to right,
+        var(--g-color-line) var(--column-start),
+        var(--g-color-line) var(--column-start-line),
+        var(--g-color-column) var(--column-start-line),
+        var(--g-color-column) var(--column-end),
+        var(--g-color-line) var(--column-end),
+        var(--g-color-line) var(--column-end-line),
+        var(--g-color-gutter) var(--column-end-line),
+        var(--g-color-gutter) var(--gutter-end)
+      );
+    --g-gradient-baseline:
+      repeating-linear-gradient(
+        to bottom,
+        var(--g-color-baseline),
+        var(--g-color-baseline) var(--line-thickness),
+        transparent var(--line-thickness),
+        transparent var(--g-baseline-height)
+      );
+  }
+
+@media (min-width: 560px) {
+  :root {
+    --g-color: 190, 100%, 50%;
+    --g-offset: 32px;
+    --g-gutter: 12px;
+    --g-media_query: 'Small';
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --g-color: 310, 100%, 68%;
+    --g-column-count: 12;
+    --g-offset: 40px;
+    --g-gutter: 16px;
+    --g-media_query: 'Medium';
+  }
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --g-color: 190, 100%, 50%;
+    --g-offset: 48px;
+    --g-max_width: 1072px;
+    --g-media_query: 'Large';
+  }
+}
+
+/**
+* Styling
+*/
+// html {
+//   display: flex;
+//   z-index: var(--g-z_index);
+//   position: relative;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: var(--document-height, auto);
+//   justify-content: center;
+//   background-image: url(); /* Bugfix: https://bugs.chromium.org/p/chromium/issues/detail?id=591015 */
+//   background-color: #f7f7f7;
+//   pointer-events: none;
+// }
+
+// html::before {
+//   content: var(--g-media_query);
+//   position: absolute;
+//   top: 0.25rem;
+//   right: 0.4rem;
+//   color: hsl(var(--g-color));
+//   text-transform: capitalize;
+//   white-space: pre;
+// }
+
+// html::after {
+//   content: '';
+//   position: absolute;
+//   width: calc(100% - 2 * var(--g-offset));
+//   max-width: var(--g-max_width);
+//   min-height: 100vh;
+//   height: 100%;
+//   background-image: var(--g-gradient-column), var(--g-gradient-baseline);
+//   background-position: var(--g-gutter) var(--g-baseline-start, 0);
+//   background-size: calc(100% - var(--g-gutter)) calc(var(--g-baseline-height) * 10); /* 100% height results rendering bug in chrome */
+//   background-repeat: repeat;
+// }
+
+a:link {
+  // link
+}
+
+a:visited {
+  // visited
+}
+
+a:focus {
+  // focus
+}
+
+a:hover {
+  // hover
+}
+
+a:active {
+  // active
+}
