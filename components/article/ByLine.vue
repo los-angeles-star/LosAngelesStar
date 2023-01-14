@@ -16,7 +16,7 @@
         </NuxtLink>
       </div>
       <div>
-        <span>{{ $t('article.byline.by') }}</span><span itemprop="name"><Nuxt-link :to="'author/'+author.slug">{{ author.name }}</Nuxt-link></span>
+        <span>{{ $t('article.byline.by') }}</span><span itemprop="name"><NuxtLink :to="'author/'+author.slug">{{ author.name }}</NuxtLink></span>
       </div>
     </div>
   </div>
