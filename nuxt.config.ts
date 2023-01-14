@@ -115,7 +115,7 @@ export default defineNuxtConfig({
 			{ name: 'Español', code: 'es', iso: 'es-US', file: 'es.js', dir: 'ltr' },
 			{ name: 'English', code: 'en', iso: 'en-US', file: 'en.js', dir: 'ltr' }
 		],
-		langDir: 'lang/',
+		langDir: '~/lang/',
 		pages: {
 			about: {
 				en: '/about',
