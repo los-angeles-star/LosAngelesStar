@@ -53,7 +53,7 @@ export const useStocksStore = defineStore('stocks', {
         console.log(error.name, error.message)
       }
     },
-    updateMarketSummary(state, marketSummary) => {
+    updateMarketSummary(state, marketSummary) {
       state.marketSummary = marketSummary
     }
   }
