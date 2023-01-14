@@ -17,7 +17,6 @@
   "devDependencies": {
     "@double-great/stylelint-a11y": ">=2.0.0",
     "@lhci/cli": "^0.9.0",
-    "@nuxt/bridge": "npm:@nuxt/bridge-edge",
     "@nuxtjs/google-fonts": "^3.0.0-1",
     "@gtm-support/vue-gtm": "^2.0.0",
     "@nuxtjs/proxy": "^2.1.0",
