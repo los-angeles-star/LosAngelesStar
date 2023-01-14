@@ -1,24 +1,4 @@
 import { API_Endpoint, Config } from "./assets/config"
-import axios from "axios"
-
-let dynamicRoutes = () => {
-	let posts = axios
-		.get(Config.wpDomain + "/wp/v2/posts?page=1&per_page=20")
-		.then(res => {
-			return res.data.map(post => `/${post.slug}`)
-		})
-	let users = axios
-		.get(Config.wpDomain + '/wp/v2/users/', {params: {size: 10}})
-		.then((res) => {
-			return res.data.content.map((user) => {
-				return '/author/' + user.id
-			})
-		})
-	console.log(routes)
-	return Promise.all([posts, users]).then(values => {
-		return values.join().split(',');
-	})
-}
 
 export default defineNuxtConfig({
 	// Global page headers: https://go.nuxtjs.dev/config-head
@@ -122,9 +102,6 @@ export default defineNuxtConfig({
 		"~/plugins/vue-gtm.client.js",
 		// "~/plugins/dateFormat.js"
 	],
-	generate: {
-		routes: dynamicRoutes
-	},
 	styleResources: {
 		scss: [
 			'./assets/vars/*.scss',
