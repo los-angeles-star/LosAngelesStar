@@ -50,8 +50,8 @@ export const actions = {
     if (state.marketSummary.length) return
 
     try {
-      let marketSummary = await axios.get(
-        '/api/v6/finance/quote/marketSummary?lang=en&region=US'
+      let marketSummary = await useFetch(
+        `/api/v6/finance/quote/marketSummary?lang=en&region=US`
       ).then((response) => {
         return response.data.marketSummaryResponse.result
       })

@@ -5,7 +5,7 @@
 		</header>
 		<transition name="fade" appear>
 			<main tabindex="-1" v-cloak>
-				<nuxt />
+				<slot />
 			</main>
 		</transition>
 		<footer class="site-footer">

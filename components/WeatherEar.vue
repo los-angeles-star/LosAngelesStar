@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import SunCalc from 'suncalc'
 export default {
   data () {
@@ -118,9 +117,7 @@ export default {
     },
     async getWeather () {
       try {
-        const results = await axios.get(
-          'https://api.weather.gov/stations/ksmo/observations/latest'
-        )
+        const results = await useFetch(`https://api.weather.gov/stations/ksmo/observations/latest`)
         this.weather.description = results.data.properties.textDescription
         if ( results.data.properties.temperature.value != null ) {
           this.weather.temperature = results.data.properties.temperature.value
@@ -135,9 +132,7 @@ export default {
     },
     async getForecast () {
       try {
-        const results = await axios.get(
-          'https://api.weather.gov/gridpoints/LOX/149,48'
-        )
+        const results = await useFetch(`https://api.weather.gov/gridpoints/LOX/149,48`)
         this.weather.high = results.data.properties.maxTemperature.values[0].value
         this.weather.low = results.data.properties.minTemperature.values[0].value
       } catch (error) {
