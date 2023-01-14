@@ -3,61 +3,68 @@ import { API_Endpoint, Config } from "./assets/config"
 import axios from "axios"
 
 let dynamicRoutes = () => {
-  const routes = axios
-    .get(Config.wpDomain + "/wp/v2/posts?page=1&per_page=20")
-    .then(res => {
-      return res.data.map(post => `/${post.slug}`)
-    })
-  console.log(routes)
-  return routes
+	let posts = axios
+		.get(Config.wpDomain + "/wp/v2/posts?page=1&per_page=20")
+		.then(res => {
+			return res.data.map(post => `/${post.slug}`)
+		})
+	let users = axios
+		.get(Config.wpDomain + '/wp/v2/users/', {params: {size: 10}})
+		.then((res) => {
+			return res.data.content.map((user) => {
+				return '/author/' + user.id
+			})
+		})
+	console.log(routes)
+	return Promise.all([posts, users]).then(values => {
+		return values.join().split(',');
+	})
 }
 
 export default defineNuxtConfig({
 	// Global page headers: https://go.nuxtjs.dev/config-head
-	head: {
-		htmlAttrs: {
-			dir: 'ltr'
-		},
-		meta: [
-			{
-				hid: 'description',
-				name: 'description',
-				content: Config.appDescription || ''
+	app: {
+		head: {
+			htmlAttrs: {
+				dir: 'ltr'
+			},
+			meta: [
+				{
+					hid: 'description',
+					name: 'description',
+					content: Config.appDescription || ''
+				}
+			],
+			titleTemplate: (titleChunk) => {
+				// If undefined or blank then we don't need the hyphen
+				return titleChunk ? `${titleChunk}` : "Los Angeles Star";
 			}
-		],
-		titleTemplate: titleChunk => {
-			// If undefined or blank then we don't need the hyphen
-			return titleChunk ? `${titleChunk} - Los Angeles Star` : "Los Angeles Star";
 		}
 	},
 	// target: 'static',
 	generate: {
 		fallback: true
 	},
-	render: {
-    bundleRenderer: {
-			shouldPreload: (file, type) => {
-			  if (type === 'image') return /.svg/.test(file)
-			  return ['script', 'style', 'image'].includes(type)
-			}
-		}
+	loading: {
+		color: 'cyan',
+		height: '5px'
+	},
+	loadingIndicator: {
+		name: 'circle',
+		color: Config.appThemeColor,
+		background: Config.appBgColor
 	},
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: ['~/node_modules/sanitize.css'],
 
-	// Auto-import components: https://go.nuxtjs.dev/config-components
-	components: true,
-
 	// Modules: https://go.nuxtjs.dev/config-modules
-	buildModules: [
-		'@nuxtjs/pwa',
+	modules: [
+		'@pinia/nuxt',
 		'@nuxtjs/google-fonts',
-		'@nuxtjs/axios',
-		'@nuxtjs/proxy',
-		'@nuxtjs/style-resources',
+		'nuxt-proxy',
 		'@nuxtjs/i18n',
-		'@nuxtjs/stylelint-module',
+		'vite-plugin-stylelint',
 		'@nuxtjs/gtm',
 		// PurgeCSS: https://purgecss.com/guides/nuxt.html
 		'nuxt-purgecss',
@@ -67,18 +74,21 @@ export default defineNuxtConfig({
 	ssr: true,
 
 	// PWA module configuration: https://pwa.nuxtjs.org/
-	pwa: {
-		manifest: {
-			name: Config.appTitle,
-			short_name: Config.appTitleShort,
-			background_color: Config.appBgColor
-		},
-		meta: {
-			theme_color: Config.appThemeColor
-		}
-	},
+	// pwa: {
+	// 	manifest: {
+	// 		name: Config.appTitle,
+	// 		short_name: Config.appTitleShort,
+	// 		background_color: Config.appBgColor
+	// 	},
+	// 	meta: {
+	// 		theme_color: Config.appThemeColor
 	// 	}
 	// },
+
+	router: {
+	  base: './',
+	  mode: 'hash'
+	},
 
 	// Google Fonts module configuration: https://google-fonts.nuxtjs.org/
 	googleFonts: {
@@ -92,19 +102,16 @@ export default defineNuxtConfig({
 		}
 	},
 
-	// Axios module configuration: https://go.nuxtjs.dev/config-axios
-	axios: {
-		baseURL: Config.url || '',
-		proxy: true
-	},
-
 	// Proxy module
 	proxy: {
-	  '/api/': {
+		options: {
 			target: 'https://query1.finance.yahoo.com/',
 			pathRewrite: {'^/api/': ''},
 			changeOrigin: true
-		}
+		},
+		pathFilter: [
+	  	'/api/'
+		]
 	},
 
 	// Plug-ins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -168,6 +175,16 @@ export default defineNuxtConfig({
 			}
 		}
 	},
+
+	vite: {
+    css: {
+      preprocessorOptions: {
+        sass: {
+          additionalData: '@import "@/assets/css/config.sass"',
+        },
+      },
+    },
+  },
 
 	// Google Analytics: https://go.nuxtjs.dev/google-analytics
 	gtm: {
