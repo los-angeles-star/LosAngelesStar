@@ -35,6 +35,17 @@ export default defineNuxtConfig({
 					content: Config.appDescription || ''
 				}
 			],
+			script: [
+      	{
+	        hid: 'gtm',
+	        children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	      })(window,document,'script','dataLayer','${process.env.GOOGLE_ANALYTICS_ID}');`,
+	        type: 'text/javascript'
+	      }
+			],
 			titleTemplate: (titleChunk) => {
 				// If undefined or blank then we don't need the hyphen
 				return titleChunk ? `${titleChunk}` : "Los Angeles Star";
@@ -65,7 +76,6 @@ export default defineNuxtConfig({
 		'nuxt-proxy',
 		'@nuxtjs/i18n',
 		'vite-plugin-stylelint',
-		'@nuxtjs/gtm',
 		// PurgeCSS: https://purgecss.com/guides/nuxt.html
 		'nuxt-purgecss',
 	],
@@ -117,6 +127,7 @@ export default defineNuxtConfig({
 	// Plug-ins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [
 		"~/plugins/posts.server.js",
+		"~/plugins/vue-gtm.client.js",
 		// "~/plugins/dateFormat.js"
 	],
 	generate: {
@@ -186,15 +197,6 @@ export default defineNuxtConfig({
     },
   },
 
-	// Google Analytics: https://go.nuxtjs.dev/google-analytics
-	gtm: {
-    id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
-		enabled: process.env.NODE_ENV === 'production' ? true : false,
-		pageTracking: true,
-		autoTracking: {
-      screenview: true
-    }
-  },
   publicRuntimeConfig: {
 		baseURL: process.env.BASE_URL || 'https://localhost:3000',
     gtm: {

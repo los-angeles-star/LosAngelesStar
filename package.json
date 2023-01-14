@@ -19,7 +19,7 @@
     "@lhci/cli": "^0.9.0",
     "@nuxt/bridge": "npm:@nuxt/bridge-edge",
     "@nuxtjs/google-fonts": "^3.0.0-1",
-    "@nuxtjs/gtm": "^2.4.0",
+    "@gtm-support/vue-gtm": "^2.0.0",
     "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/pwa": "^3.3.5",
     "nuxt": "^3.0.0",
