@@ -3,7 +3,7 @@
     <div>
       <div>
         <link v-if="author.url" itemprop="sameas" :href="author.url">
-        <Nuxt-link v-if="author.avatar_urls" :to="'author/'+author.slug">
+        <NuxtLink v-if="author.avatar_urls" :to="'author/'+author.slug">
           <img
             :alt="author.name"
             :srcset="
@@ -13,7 +13,7 @@
             "
             :src="author.avatar_urls[24]"
             itemprop="image"/>
-        </Nuxt-link>
+        </NuxtLink>
       </div>
       <div>
         <span>{{ $t('article.byline.by') }}</span><span itemprop="name"><Nuxt-link :to="'author/'+author.slug">{{ author.name }}</Nuxt-link></span>
