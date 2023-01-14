@@ -1,4 +1,3 @@
-import { defineNuxtConfig } from '@nuxt/bridge'
 import { API_Endpoint, Config } from "./assets/config"
 import axios from "axios"
 
