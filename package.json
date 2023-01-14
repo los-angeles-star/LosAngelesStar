@@ -23,7 +23,7 @@
     "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/pwa": "^3.3.5",
     "nuxt": "^3.0.0",
-    "nuxt-purgecss": "^1.0.0",
+    "nuxt-purgecss": "^2.0.0",
     "postcss": "8",
     "postcss-html": "^1.4.1",
     "sass": "^1.50.0",
