@@ -97,11 +97,7 @@ export default defineNuxtConfig({
 	},
 
 	// Plug-ins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-	plugins: [
-		"~/plugins/posts.server.js",
-		"~/plugins/vue-gtm.client.js",
-		// "~/plugins/dateFormat.js"
-	],
+	plugins: [],
 	styleResources: {
 		scss: [
 			'./assets/vars/*.scss',
