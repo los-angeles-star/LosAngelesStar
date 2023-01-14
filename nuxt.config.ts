@@ -114,14 +114,7 @@ export default defineNuxtConfig({
 
 	// Proxy module
 	proxy: {
-		options: {
-			target: 'https://query1.finance.yahoo.com/',
-			pathRewrite: {'^/api/': ''},
-			changeOrigin: true
-		},
-		pathFilter: [
-	  	'/api/'
-		]
+	
 	},
 
 	// Plug-ins to run before rendering page: https://go.nuxtjs.dev/config-plugins
