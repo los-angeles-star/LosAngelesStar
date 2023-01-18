@@ -163,9 +163,7 @@ export default defineNuxtConfig({
   },
 
   publicRuntimeConfig: {
-		baseURL: process.env.BASE_URL || 'https://localhost:3000',
-    gtm: {
-      id: process.env.GOOGLE_ANALYTICS_ID
-    }
+		baseUrl: 'https://localhost:3000',
+		googleAnalyticsId: '',
   }
 })
