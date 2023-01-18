@@ -109,7 +109,7 @@ export default defineNuxtConfig({
 		defaultLocale: 'en',
 		locales: [
 		],
-		langDir: '~/lang/',
+		langDir: 'lang/',
 		pages: {
 			about: {
 				en: '/about',
