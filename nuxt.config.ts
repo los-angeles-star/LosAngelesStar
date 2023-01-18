@@ -75,8 +75,10 @@ export default defineNuxtConfig({
 	// },
 
 	router: {
-	  base: './',
-	  mode: 'hash'
+		options: {
+		  base: './',
+		  hashMode: false
+		}
 	},
 
 	// Google Fonts module configuration: https://google-fonts.nuxtjs.org/
