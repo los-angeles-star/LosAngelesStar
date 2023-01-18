@@ -48,7 +48,8 @@ export default {
       weather_types: [
         "Clear",
         "Partly Cloudy",
-        "Fog/Mist"
+        "Fog/Mist",
+        "Rain"
       ]
     }
   },
