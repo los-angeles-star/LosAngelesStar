@@ -1,11 +1,11 @@
 <template>
 	<div slot-scope="{ header }" class="container">
-		<meta itemprop="name" :content="$store.state.metadata.description">
+		<meta itemprop="name" :content="store.metadata.description">
 		<transition name="logo" appear :duration="1500">
 			<div :class="[isLoading ? 'logo-enter' : 'loaded', 'flag']" v-once>
 				<h1>
 					<NuxtLink :to="localePath({ name: 'index' })" itemprop="url" aria-label="Navigate to the home page">
-						<img class="logo responsive" src="@/assets/los-angeles-star-logo.svg" :alt="$store.state.metadata.name || $t('los_angeles')" width="750" height="96" itemprop="logo">
+						<img class="logo responsive" src="@/assets/los-angeles-star-logo.svg" :alt="store.metadata.name || $t('los_angeles')" width="750" height="96" itemprop="logo">
 					</NuxtLink>
 				</h1>
 			</div>
