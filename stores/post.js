@@ -1,3 +1,4 @@
+import { defineStore } from 'pinia'
 import { Config } from '~/assets/config'
 
 export const state = () => ({
