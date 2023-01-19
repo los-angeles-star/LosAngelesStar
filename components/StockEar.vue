@@ -64,7 +64,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('stocks', ['marketSummary']),
+    ...mapState(useStocksStore, ['marketSummary']),
   }
 }
 </script>
