@@ -16,7 +16,7 @@ export const mutations = {
 
 export const actions = {
   async getPost({ state, commit, dispatch }, data) {
-    if (state.post.length) return
+    if (Object.keys(this.post).length) return
 
     try {
       let post = await fetch(
