@@ -15,7 +15,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async getPost({ state, commit, dispatch }, data) {
+  async getPost(data) {
     if (Object.keys(this.post).length) return
 
     try {
