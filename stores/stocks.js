@@ -39,7 +39,7 @@ export const useStocksStore = defineStore('stocks', {
   // optional actions
   actions: {
     async getMarketSummary() {
-      if (this.marketSummary.length) return
+      if (this.marketSummary[0].regularMarketChangePercent.raw === 0) return
 
       try {
         let marketSummary = await useFetch(
