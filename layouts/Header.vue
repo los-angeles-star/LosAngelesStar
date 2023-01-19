@@ -35,6 +35,14 @@ import WeatherEar from '~/components/WeatherEar.vue'
 import StockEar from '~/components/StockEar.vue'
 
 export default {
+	setup() {
+    const store = useMainStore()
+
+    return {
+      // you can return the whole store instance to use it in the template
+      store,
+    }
+  },
 	name: 'Header',
 	props: ["attention"],
 	data () {
