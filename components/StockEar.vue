@@ -19,7 +19,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
+import { useStocksStore } from '@/stores/stocks'
 
 const data = {
   currentIndex: 0,
@@ -28,6 +29,15 @@ const data = {
 
 export default {
 	name: 'stock-ticker',
+  setup() {
+    const stocks = useStocksStore();
+
+    const { getMarketSummary } = stocks;
+
+    return {
+      getMarketSummary
+    }
+  },
 	data () {
 		return data
 	},
