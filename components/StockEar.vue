@@ -44,8 +44,8 @@ export default {
   props: {
     attention: Boolean
   },
-  created() {
-    this.$store.dispatch('stocks/getMarketSummary')
+  beforeMount() {
+    this.getMarketSummary();
   },
   mounted() {
     this.marketInterval = setInterval( () => {
