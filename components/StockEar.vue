@@ -1,7 +1,7 @@
 <template>
   <div class="stocks">
     <transition-group name="fade" tag="dl">
-      <div class="market-index" :class="index == currentIndex ? '' : 'visually-hidden'" v-for="(item, index) in marketSummary" :key="item.shortName" :data-index="index">
+      <div class="market-index" :class="index == currentIndex ? '' : 'visually-hidden'" v-for="(item, index) in marketSummary" :key="item" :data-index="index">
         <dt>
           <span class="name">{{ item.shortName }}</span>
         </dt>
