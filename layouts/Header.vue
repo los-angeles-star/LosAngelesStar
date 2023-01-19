@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { useMainStore } from '@/stores/'
 import WeatherEar from '~/components/WeatherEar.vue'
 import StockEar from '~/components/StockEar.vue'
 
