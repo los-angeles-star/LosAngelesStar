@@ -169,10 +169,6 @@ export const useMainStore = defineStore('main', {
       } catch (err) {
         console.log(err)
       }
-    },
-    // updateCurrentAuthor(state, author) {
-    //   state.currentAuthor = author
-    //   state.authors.push(author)
-    // },
+    }
   }
 });
