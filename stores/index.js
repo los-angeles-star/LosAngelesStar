@@ -5,13 +5,13 @@ import { Config } from '~/assets/config'
 export const useMainStore = defineStore('main', {
   // a function that returns a fresh state
   state: () => ({
-    metadata: {},
-    posts: [],
-    authors: [],
-    currentAuthor: {},
-    postMedia: {},
-    tags: [],
-    currentPage: {}
+    metadata: ref({}),
+    posts: ref([]),
+    authors: ref([]),
+    currentAuthor: ref({}),
+    postMedia: ref({}),
+    tags: ref([]),
+    currentPage: ref({})
   }),
   // optional actions
   actions: {
