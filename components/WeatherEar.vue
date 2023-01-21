@@ -141,26 +141,32 @@ export default {
     },
     async getWeather () {
       try {
-        const results = await useFetch("https://api.weather.gov/stations/ksmo/observations/latest")
-        this.weather.description = results.data._rawValue.properties.textDescription
-        if ( results.data._rawValue.properties.temperature.value != null ) {
-          this.weather.temperature = results.data._rawValue.properties.temperature.value
-        } else if ( results.data._rawValue.properties.temperature.value === null && this.weather.temperature !== null ) {
-          return
-        } else {
-          this.weather.temperature = -160/9
-        }
+        const { data: results } = await useFetch("https://api.weather.gov/stations/ksmo/observations/latest")
+        nextTick(() => {
+          if ( results.value.properties.textDescription != null ) {
+            this.weather.description = results.value.properties.textDescription
+          }
+          if ( results.value.properties.temperature.value != null ) {
+            this.weather.temperature = results.value.properties.temperature.value
+          } else if ( results.value.properties.temperature.value === null && this.weather.temperature != null ) {
+            return
+          } else {
+            this.weather.temperature = -160/9
+          }
+        })
       } catch (error) {
-        console.log(error)
+        console.log("Weather: ", error)
       }
     },
     async getForecast () {
       try {
-        const results = await useFetch(`https://api.weather.gov/gridpoints/LOX/149,48`)
-        this.weather.high = results.data._rawValue.properties.maxTemperature.values[0].value
-        this.weather.low = results.data._rawValue.properties.minTemperature.values[0].value
+        const { data: results } = await useFetch(`https://api.weather.gov/gridpoints/LOX/149,48`)
+        if (results.value != null) {
+          this.weather.high = results.value.properties.maxTemperature.values[0].value
+          this.weather.low = results.value.properties.minTemperature.values[0].value
+        }
       } catch (error) {
-        console.log(error)
+        console.log("Forecast: ", error)
       }
     },
     cancelAutoUpdate () {
