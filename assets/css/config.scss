@@ -142,22 +142,24 @@
 //   background-repeat: repeat;
 // }
 
-a:link {
-  // link
-}
+a {
+  &:link {
+    // link
+  }
 
-a:visited {
-  // visited
-}
+  &:visited {
+    // visited
+  }
 
-a:focus {
-  // focus
-}
+  &:focus {
+    // focus
+  }
 
-a:hover {
-  // hover
-}
+  &:hover {
+    // hover
+  }
 
-a:active {
-  // active
+  &:active {
+    // active
+  }
 }
