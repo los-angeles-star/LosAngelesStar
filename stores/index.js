@@ -22,14 +22,18 @@ export const useMainStore = defineStore('main', {
       this.updateMetadata(res.data._rawValue)
     },
     updateMetadata(payload) {
-      this.metadata.name = payload.name
-      this.metadata.description = payload.description
+      if (payload != null) {
+        this.metadata.name = payload.name
+        this.metadata.description = payload.description
+      }
     },
     async getPostMedia(data) {
       if (Object.keys(this.postMedia).length !== 0) return
 
       const res = await useFetch(`${Config.wpDomain}${Config.api.media}${data.featuredMedia}`);
-      this.postMedia = res.data._rawValue;
+      if (res.data._rawValue != null) {
+        this.postMedia = res.data._rawValue;
+      }
     },
     async getPosts() {
       if (this.posts.length) return
@@ -137,7 +141,8 @@ export const useMainStore = defineStore('main', {
           `${Config.wpDomain}${Config.api.tags}?page=1&per_page=40&include=${allTags}`
         );
 
-        tags = tags.data._rawValue;
+        if (tags.data._rawValue != null) {
+          tags = tags.data._rawValue;
 
         tags = tags.map(({ id, name }) => ({
           id,
@@ -157,7 +162,8 @@ export const useMainStore = defineStore('main', {
           `${Config.wpDomain}${Config.api.pages}?slug=${data.slug}`
         );
 
-        currentPage = currentPage.data._rawValue;
+        if (currentPage != null) {
+          currentPage = currentPage.data._rawValue;
 
         this.currentPage = currentPage[0];
 
