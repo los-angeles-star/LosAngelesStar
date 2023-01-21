@@ -124,7 +124,7 @@ export default {
       }
     },
     setSunrise: function () {
-      // get today's sunlight times for London
+      // get today's sunlight times for Los Angeles
       var times = SunCalc.getTimes(new Date(), 34.125278, -118.398889);
       // format sunrise time from the Date Object
       var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
