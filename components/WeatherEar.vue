@@ -34,7 +34,7 @@ import SunCalc from 'suncalc'
 export default {
   data () {
     return {
-      timer: '',
+      timer: null,
       midnight: null,
       sunrise: null,
       sunset: null,
