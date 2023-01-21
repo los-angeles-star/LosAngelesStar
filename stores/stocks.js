@@ -39,8 +39,6 @@ export const useStocksStore = defineStore('stocks', {
   // optional actions
   actions: {
     async getMarketSummary() {
-      if (this.marketSummary[0].regularMarketChangePercent.raw === 0) return
-
       try {
         let { data: marketSummary } = await useFetch(
           `/api/v6/finance/quote/marketSummary?lang=en&region=US`
