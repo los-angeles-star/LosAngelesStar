@@ -44,13 +44,15 @@ export const useStocksStore = defineStore('stocks', {
           `/api/v6/finance/quote/marketSummary?lang=en&region=US`
         );
 
-        if (marketSummary.value != null) {
-          marketSummary = marketSummary.value.marketSummaryResponse.result;
+        nextTick(() => {
+          if (marketSummary.value != null) {
+            marketSummary = marketSummary.value.marketSummaryResponse.result;
 
-          this.marketSummary = marketSummary;
-        } else {
-          return
-        }
+            this.marketSummary = marketSummary;
+          } else {
+            return
+          }
+        })
       } catch (error) {
         console.log(error.name, error.message)
       }
