@@ -73,7 +73,6 @@ export default defineNuxtConfig({
 
 	router: {
 		options: {
-		  base: './',
 		  hashMode: false
 		}
 	},
