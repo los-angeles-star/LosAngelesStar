@@ -32,9 +32,6 @@ export default defineNuxtConfig({
 		}
 	},
 	// target: 'static',
-	generate: {
-		fallback: true
-	},
 	loading: {
 		color: 'cyan',
 		height: '5px'
