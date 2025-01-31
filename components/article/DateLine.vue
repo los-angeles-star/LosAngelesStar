@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <time :datetime="date">
-      <span v-html="$d( new Date(date), 'short' )" itemprop="datePublished">{{ $t('article.dateline.today') }}</span>
-    </time>
-    <time :datetime="modified">
-      <span>{{ $t('article.dateline.updated') }} <span v-html="$d( new Date(modified), 'short' )" itemprop="dateModified">12:00 p.m. PT</span></span>
-    </time>
-  </div>
+	<div class="article-dateline">
+		<time :datetime="date">
+			<span itemprop="datePublished">{{ $d( new Date(date), 'short' ) || $t(article.dateline.today) }}</span>
+		</time>
+		<time :datetime="modified">
+			<span>{{ $t('article.dateline.updated') }} <span itemprop="dateModified">{{ $d( new Date(modified), 'short' ) || "12:00 p.m. PT" }}</span></span>
+		</time>
+	</div>
 </template>
-
+  
 <script>
 export default {
   props: {
@@ -17,7 +17,7 @@ export default {
   },
 }
 </script>
-
+  
 <style lang="scss" scoped>
 $content--width: 688px;
 
@@ -32,4 +32,4 @@ time {
   font-size: 0.8125em;
   letter-spacing: 1px;
 }
-</style>
+</style>  

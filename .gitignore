@@ -7,6 +7,7 @@ package-lock.json
 */**/yarn.lock
 
 # Logs
+logs
 *.log
 
 # Packages
@@ -20,15 +21,20 @@ distributions/*/LICENSE
 !.nuxtignore
 !.nuxtrc
 .cache
+
+# Local env files
 .env
 .env.*
+!.env.example
 
 # Generated folders
 dist
+.data
 .nuxt
 .nuxt-*
 .output
 .gen
+.nitro
 nuxt.d.ts
 static/sw.*
 sw.*

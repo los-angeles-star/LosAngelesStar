@@ -1,5 +1,5 @@
 const cacheControl = (values) => ({ res }) => {
-	if (!process.server) return;
+	if (typeof window !== 'undefined') return;
 
 	const cacheControlValue = Object.entries(values)
 		.map(([key, value]) => `${key}=${value}`)

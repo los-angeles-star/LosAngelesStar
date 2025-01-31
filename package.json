@@ -1,45 +1,30 @@
 {
-  "name": "los-angeles-star",
-  "author": {
-    "name": "Alexander Bell",
-    "email": "contact@alexanderbell.info",
-    "url": "https://alexanderbell.info"
-  },
+  "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "nuxi dev",
-    "build": "nuxi build",
-    "generate": "nuxi generate",
-    "start": "nuxi preview",
-    "lhci:mobile": "lhci autorun",
-    "lhci:desktop": "lhci autorun --collect.settings.preset=desktop"
-  },
-  "devDependencies": {
-    "@lhci/cli": "^0.9.0",
-    "@nuxt/bridge": "npm:@nuxt/bridge-edge",
-    "@nuxtjs/google-fonts": "^1.3.0",
-    "@nuxtjs/proxy": "^2.1.0",
-    "@nuxtjs/pwa": "^3.3.5",
-    "@nuxtjs/style-resources": "^1.2.1",
-    "@nuxtjs/stylelint-module": "^4.1.0",
-    "nuxt-edge": "latest",
-    "nuxt-purgecss": "^1.0.0",
-    "postcss": "8",
-    "postcss-html": "^1.4.1",
-    "sass": "^1.50.0",
-    "sass-loader": "10.2.0",
-    "stylelint": "^14.7.1",
-    "stylelint-a11y": "^1.2.3",
-    "stylelint-config-recommended-scss": "^6.0.0",
-    "stylelint-config-recommended-vue": "^1.4.0"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/apollo": "^4.0.1-rc.5",
-    "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/google-analytics": "^2.4.0",
-    "@nuxtjs/i18n": "^7.2.1",
-    "dayjs": "^1.11.0",
-    "sanitize.css": "^13.0.0",
-    "suncalc": "^1.9.0"
+    "@nuxt/fonts": "0.10.3",
+    "@nuxtjs/i18n": "9.0.0-rc.2",
+    "@pinia/nuxt": "0.9.0",
+    "dayjs-nuxt": "2.1.11",
+    "nuxt": "^3.15.1",
+    "pinia": "^2.3.0",
+    "suncalc": "^1.9.0",
+    "yahoo-finance2": "^2.13.3"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "devDependencies": {
+    "@types/suncalc": "^1.9.2",
+    "nuxt-purgecss": "^2.0.0",
+    "sass": "^1.83.4",
+    "sass-loader": "^16.0.4",
+    "typescript": "^5.7.3"
   }
 }

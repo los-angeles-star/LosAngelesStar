@@ -1,41 +1,51 @@
-<template>
-	<div class="columns">
-		<Article v-for="post in $store.state.posts" :key="post.id" :post="post" />
-	</div>
-	<!-- <Pager :info="$page.allWordPressPost.pageInfo" linkClass="pager-link"/> -->
-</template>
+<script setup>
+import useWpApi from "@/composables/useWordPressAPI";
+import WordPressPostExcerpt from "@/components/WordPressPostExcerpt.vue";
+import { usePostStore } from "@/stores/index.js";
 
+const postStore = usePostStore();
+
+definePageMeta({
+    title: 'pages.title.top', // set resource key
+    middleware: [
+        // cacheControl({
+        //     'max-age': 60,
+        //     'stale-when-revalidate': 5
+        // })
+    ]
+})
+
+const { data: posts, refresh, error } = await useWpApi().getPosts();
+
+console.log("Refresh:", refresh, "Error:", error)
+
+await useAsyncData('posts', () => postStore.getPosts())
+await useAsyncData('metadata', () => postStore.getMeta())
+
+useHead({
+    meta: [
+        { title: 'pages.title.top' },
+    ],
+    bodyAttrs: {
+        class: ['blog']
+    }
+})
+</script>
 <script>
-import Post from '~/templates/WordPressPost.vue'
-import Article from '~/templates/WordPressPostExcerpt.vue'
-import cacheControl from '~/plugins/cacheControl.js'
-
 export default {
-	name: 'Home',
-	components: {
-		Post,
-		Article
-	},
-	metaInfo: {
-		title: 'The Los Angeles Star',
-		bodyAttrs: {
-			class: ['blog']
-		}
-	},
-	middleware: cacheControl({
-		'max-age': 60,
-		'stale-when-revalidate': 5
-	}),
-	computed: {
-		posts() {
-			return this.$store.state.posts;
-		},
-	},
-	created() {
-		this.$store.dispatch("getPosts");
-	},
+    name: 'Home',
 }
 </script>
+
+<template>
+    <div class="columns">
+		<WordPressPostExcerpt 
+			v-for="post in posts" 
+			:key="post.id" 
+			:post="post"
+		/>
+	</div>
+</template>
 
 <style lang="scss">
 article {

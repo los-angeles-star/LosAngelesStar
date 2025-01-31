@@ -1,20 +1,20 @@
 <template>
 	<div slot-scope="{ header }" class="container">
-		<meta itemprop="name" :content="$store.state.metadata.description">
+		<meta itemprop="name" :content="posts.metadata">
 		<transition name="logo" appear :duration="1500">
 			<div :class="[isLoading ? 'logo-enter' : 'loaded', 'flag']" v-once>
 				<h1>
-					<NuxtLink :to="localePath({ name: 'index' })" itemprop="url" aria-label="Navigate to the home page">
-						<img class="logo responsive" src="@/assets/los-angeles-star-logo.svg" :alt="$store.state.metadata.name || $t('los_angeles')" width="750" height="96" itemprop="logo">
-					</NuxtLink>
+					<NuxtLinkLocale to="/" itemprop="url" aria-label="Navigate to the home page">
+						<img class="logo responsive" src="@/assets/los-angeles-star-logo.svg" :alt="posts.metadata || $t('los_angeles')" width="750" height="96" itemprop="logo">
+					</NuxtLinkLocale>
 				</h1>
 			</div>
 		</transition>
 		<section id="masthead-bar">
-			<div class="ear left"></div>
+			<div class="ear left">{{ componentKey }} {{ props.attention }}</div>
 			<div class="ear right">
 				<WeatherEar :attention="attention" :key="componentKey" />
-				<StockEar :attention="attention" />
+                <StockEar :attention="attention" />
 			</div>
 		</section>
 		<div class="dateline">
@@ -23,41 +23,59 @@
 			<div class="issue" itemprop="hasPart" itemscope="" itemtype="http://schema.org/PublicationIssue" itemid="#iss42"><abbr :title="$t('dateline.number')">{{ $t('dateline.no') }}</abbr>&nbsp;<span itemprop="issueNumber">42</span>.</div>
 		</div>
 		<nav class="nav">
-			<NuxtLink class="nav__link" :to="localePath({ name: 'index' })">{{ $t('home') }}</NuxtLink>
-			<NuxtLink class="nav__link" to="/about/">{{ $t('about') }}</NuxtLink>
-			<NuxtLink v-for="lang in $i18n.locales" :key="lang.code" class="nav__link" :to="switchLocalePath(lang.code)">{{ lang.name }}</NuxtLink>
+			<NuxtLinkLocale class="nav__link" to="/">{{ $t('home') }}</NuxtLinkLocale>
+			<NuxtLinkLocale class="nav__link" to="/about/">{{ $t('about') }}</NuxtLinkLocale>
+            <template v-for="(locale, index) in availableLocales" :key="locale.code">
+                <span v-if="index"> | </span>
+                <SwitchLocalePathLink :locale="locale.code" class="nav__link">
+                    {{ locale.name ?? locale.code }}
+                </SwitchLocalePathLink>
+            </template>
 		</nav>
 	</div>
 </template>
 
-<script>
-import WeatherEar from '~/components/WeatherEar.vue'
-import StockEar from '~/components/StockEar.vue'
+<script setup>
+import { ref, watch } from 'vue';
+import useWpApi from "@/composables/useWordPressAPI";
+import { useStocksStore } from "@/stores/stocks";
+const stocksStore = useStocksStore();
+stocksStore.getMarketSummary();
 
-export default {
+const { data: posts, refresh, error } = await useWpApi().getPosts();
+
+const { locale, locales } = useI18n()
+
+const availableLocales = computed(() => {
+    return locales.value.filter(i => i.code !== locale.value)
+})
+
+const props = defineProps({
+    attention: {
+        type: Boolean,
+        required: false,
+    }
+})
+
+const { progress, isLoading, start, finish, clear } = useLoadingIndicator()
+const componentKey = ref(0);
+
+watch(() => props.attention, (newValue) => {
+    if (newValue === true) {
+        componentKey.value += 1;
+    }
+})
+
+onMounted(() => {
+    isLoading.value = false;
+})
+</script>
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'Header',
-	props: ["attention"],
-	data () {
-		return {
-			isLoading: true,
-			componentKey: 0,
-		}
-	},
-	components: {
-		WeatherEar,
-		StockEar
-	},
-	watch: {
-		attention: function (val, oldVal) {
-			if ( val === true ) {
-				this.componentKey += 1
-			}
-		}
-	},
-	mounted() {
-		this.isLoading = false;
-	}
-}
+})
 </script>
 
 <style lang="scss">

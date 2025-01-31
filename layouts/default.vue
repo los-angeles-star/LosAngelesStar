@@ -1,30 +1,16 @@
-<template>
-	<div :class="[ 'paper', attention ? '' : 'idle' ]" itemscope="" itemtype="http://schema.org/Newspaper" itemid="#app">
-		<header class="nameplate">
-		<Header v-slot:header :attention="attention"></Header>
-		</header>
-		<transition name="fade" appear>
-			<main tabindex="-1" v-cloak>
-				<nuxt />
-			</main>
-		</transition>
-		<footer class="site-footer">
-			<Footer v-slot:footer></Footer>
-		</footer>
-	</div>
-</template>
-
+<script setup>
+import Header from '@/layouts/Header.vue'
+const route = useRoute()
+const { t } = useI18n()
+const head = useLocaleHead()
+const title = computed(() => t(route.meta.title ?? 'TBD'), t('layouts.title'));
+</script>
 <script>
-import { mapState } from 'vuex'
-import Header from '../layouts/Header'
-import Footer from '../layouts/Footer'
-
 const data = { attention: true }
 export default {
 	name: 'Default',
 	components: {
 		Header,
-		Footer
 	},
 	head() {
 		const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
@@ -43,11 +29,8 @@ export default {
 	data() {
 		return data
 	},
-	computed: mapState({
-		metadata: 'metadata'
-	}),
 	mounted() {
-		this.$store.dispatch("getMeta");
+		// store.getMeta();
 	},
 	methods: {
 		onFocus: function () {
@@ -73,6 +56,32 @@ export default {
 	}
 }
 </script>
+
+<template>
+  <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
+    <Head>
+      <Title>{{ title }}</Title>
+      <template v-for="link in head.link" :key="link.hid">
+        <Link :id="link.hid" :rel="link.rel" :href="link.href" :hreflang="link.hreflang" />
+      </template>
+      <template v-for="meta in head.meta" :key="meta.hid">
+        <Meta :id="meta.hid" :property="meta.property" :content="meta.content" />
+      </template>
+    </Head>
+    <Body>
+      <div :class="[ 'paper', attention ? '' : 'idle' ]" itemscope="" itemtype="http://schema.org/Newspaper" itemid="#app">
+        <header class="nameplate">
+        <Header v-slot:header :attention="attention" />
+        </header>
+        <transition name="fade" appear>
+          <main tabindex="-1" v-cloak>
+            <slot />
+          </main>
+        </transition>
+      </div>
+    </Body>
+  </Html>
+</template>
 
 <style lang="scss">
 @use "~/assets/css/variables";

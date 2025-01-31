@@ -35,7 +35,7 @@ export default defineNuxtConfig({
 		fallback: true
 	},
 	render: {
-    bundleRenderer: {
+    	bundleRenderer: {
 			shouldPreload: (file, type) => {
 			  if (type === 'image') return /.svg/.test(file)
 			  return ['script', 'style', 'image'].includes(type)

@@ -4,7 +4,7 @@
 			<h1 v-html="title.rendered" itemprop="headline"/>
 			<meta itemprop="url" :content="link">
 			<div class="lead" v-html="excerpt.rendered" />
-			<article-featured-media v-if="featured_media" :key="featured_media" :featuredMedia="featured_media" />
+			<ArticleFeaturedMedia v-if="featured_media" :key="featured_media" :featuredMedia="featured_media" />
 			<article-date-line :date="date" :modified="modified" />
 			<article-by-line v-if="author" :key="author" :authorId="author" />
 		</header>
