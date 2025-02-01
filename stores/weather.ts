@@ -62,7 +62,7 @@ export const useWeatherStore = defineStore('weather', {
 
 				this.updateWeather(weather)
 			} catch (err) {
-					console.log(err)
+					console.log("Weather: ", err)
 			}
 		},
 		async getForecast() {
@@ -73,7 +73,7 @@ export const useWeatherStore = defineStore('weather', {
 
 				this.updateForecast(forecast)
 			} catch (err) {
-				console.log(err);
+				console.log("Forecast: ", err);
 			}
 		},
 		updateWeather(data: WeatherData) {
