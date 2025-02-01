@@ -3,7 +3,7 @@ import Header from '@/layouts/Header.vue'
 const route = useRoute()
 const { t } = useI18n()
 const head = useLocaleHead()
-const title = computed(() => t(route.meta.title ?? 'TBD'), t('layouts.title'));
+const title = computed(() => t(route.meta.title ?? 'layouts.title'), t('layouts.title'));
 </script>
 <script>
 const data = { attention: true }
