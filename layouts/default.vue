@@ -85,6 +85,7 @@ export default {
 
 <style lang="scss">
 @use "~/assets/css/variables";
+@use "~/assets/css/config";
 
 html {
 	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
