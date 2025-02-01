@@ -45,7 +45,7 @@ let times = SunCalc.getTimes(new Date(), 34.054834228856684, -118.23919363559173
 const midnight = ref<Date | null>(null);
 const sunrise = ref<Date | null>(null);
 const sunset = ref<Date | null>(null);
-const time = ref<string | null>(null);
+const time = ref<string>('day');
 const weather_types = ref([
 	"Clear",
 	"Partly Cloudy",
