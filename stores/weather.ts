@@ -82,7 +82,7 @@ export const useWeatherStore = defineStore('weather', {
 			if (data.properties.temperature.value != null) {
 				this.temperatureC = data.properties.temperature.value;
 			} else if (data.properties.temperature.value === null && this.temperatureC !== null) {
-				return;
+				this.getWeather();
 			} else {
 				this.temperatureC = -160/9; // 0ºF
 			}
