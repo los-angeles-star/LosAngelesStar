@@ -68,7 +68,7 @@ export const useWeatherStore = defineStore('weather', {
 		async getForecast() {
 			try {
 				let forecast: ForecastData = await $fetch<ForecastData>(
-					'https://api.weather.gov/gridpoints/LOX/149,48'
+					'/api/weather/forecast'
 				);
 
 				this.updateForecast(forecast)
