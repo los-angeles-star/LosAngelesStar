@@ -22,7 +22,7 @@
 	import { ref, watch } from 'vue';
 	import { useStocksStore } from '@/stores/stocks';
 
-	const props = defineProps<{ attention: Boolean }>();
+	const props = defineProps(['attention']);
 
 	const currentIndex = ref(0);
 	let marketInterval: any = useInterval(() => increaseIndex(), 5000);
