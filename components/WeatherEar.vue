@@ -114,6 +114,27 @@ watch(() => props.attention, (newVal) => {
 		weather.getWeather();
 	}
 });
+
+const celsiusToFahrenheit = (temp: number): number => temp * 1.8 + 32;
+const integer = (num: number): number => Math.round(num);
+
+const temperature = computed(() => {
+	if (weather.temperatureC !== null) {
+		return integer(celsiusToFahrenheit(weather.temperatureC));
+	}
+});
+
+const high = computed(() => {
+	if (weather.highC !== null) {
+		return integer(celsiusToFahrenheit(weather.highC));
+	}
+});
+
+const low = computed(() => {
+	if (weather.lowC !== null) {
+		return integer(celsiusToFahrenheit(weather.lowC));
+	}
+});
 </script>
 
 <style lang="scss" scoped>
