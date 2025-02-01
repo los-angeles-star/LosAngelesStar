@@ -13,6 +13,11 @@ export default defineNuxtConfig({
     }
   },
 
+  routeRules: {
+    '/api/weather/current': { proxy: 'https://api.weather.gov/stations/ksmo/observations/latest' },
+    '/api/weather/forecast': { proxy: 'https://api.weather.gov/gridpoints/LOX/149,48' }
+  },
+
   modules: ['@nuxtjs/i18n', '@nuxt/fonts', 'dayjs-nuxt', 'nuxt-purgecss', '@pinia/nuxt'],
   i18n: {
     defaultLocale: 'en',
