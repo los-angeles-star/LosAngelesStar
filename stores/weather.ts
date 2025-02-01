@@ -78,6 +78,7 @@ export const useWeatherStore = defineStore('weather', {
 		},
 		updateWeather(data: WeatherData) {
       this.description = data.properties.textDescription;
+
 			if (data.properties.temperature.value != null) {
 				this.temperatureC = data.properties.temperature.value;
 			} else if (data.properties.temperature.value === null && this.temperatureC !== null) {
