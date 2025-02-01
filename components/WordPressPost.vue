@@ -18,7 +18,10 @@
 <script>
 export default {
 	props: {
-		id: Number,
+		id: {
+			type: Number,
+			required: true
+		},
 		title: Object,
 		slug: String,
 		link: String,
