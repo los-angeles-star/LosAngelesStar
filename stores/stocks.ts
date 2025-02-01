@@ -36,8 +36,6 @@ export const useStocksStore = defineStore('stocks', {
 	},
 	actions: {
 		async getMarketSummary() {
-			// if ((<any>this.marketSummary).length) return;
-
 			try {
 				const response = await yahooFinance.quote(['^GSPC', '^IXIC', '^DJI']);
 
