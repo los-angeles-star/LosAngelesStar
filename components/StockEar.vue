@@ -36,13 +36,13 @@
 		2 > currentIndex.value ? currentIndex.value += 1 : currentIndex.value = 0;
 	}
 
-	// watch(() => props.attention, (val) => {
-	// 	if (val === false) {
-	// 		clearInterval(marketInterval);
-	// 	} else {
-	// 		marketInterval = useInterval(() => increaseIndex(), 5000);
-	// 	}
-	// });
+	watch(() => props.attention, (val) => {
+		if (!val) {
+			clearInterval(marketInterval);
+		} else {
+			marketInterval = setInterval(() => increaseIndex(), 5000);
+		}
+	});
 </script>
 
 <style lang="scss" scoped>
