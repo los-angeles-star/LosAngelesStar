@@ -98,6 +98,12 @@ blockquote {
 			font-size: 1.25em;
 			line-height: 1.6;
 		}
+
+		& > .margin-right {
+			float: right;
+			max-width: calc(((100% - 688px) / 2) - 16px);
+			margin-left: 0;
+		}
 	}
 }
 </style>
