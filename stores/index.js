@@ -124,7 +124,10 @@ export const usePostStore = defineStore('posts', {
       }
     },
     updateMetadata(metadata) {
-      this.metadata = metadata
+      if (metadata != null) {
+        this.metadata.name = metadata.name;
+        this.metadata.description = metadata.description;
+      }
     },
     updatePosts(posts) {
       this.posts = posts
