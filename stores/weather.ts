@@ -56,11 +56,11 @@ export const useWeatherStore = defineStore('weather', {
 	actions: {
 		async getWeather() {
 			try {
-					let weather: WeatherData = await $fetch<WeatherData>(
-						'https://api.weather.gov/stations/ksmo/observations/latest'
-					);
-	
-					this.updateWeather(weather)
+				let weather: WeatherData = await $fetch<WeatherData>(
+					'/api/weather/current'
+				);
+
+				this.updateWeather(weather)
 			} catch (err) {
 					console.log(err)
 			}
